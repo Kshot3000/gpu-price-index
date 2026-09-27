@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPU Price Index — OctaSpace vs Vast.ai vs RunPod (live prices)</title>
+<meta name="description" content="Live GPU rental prices from the OctaSpace marketplace, compared against published Vast.ai and RunPod rates. See exactly how much you save.">
+<meta property="og:title" content="GPU Price Index — stop overpaying for GPUs">
+<meta property="og:description" content="Live OctaSpace rental prices vs Vast.ai and RunPod. The data, refreshed automatically.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='38' fill='%23ff7a1a'/></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> GPU Price Index</div>
+    <div class="live-pill" id="livePill"><span class="pulse"></span> connecting…</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Stop overpaying <span class="hl">for GPUs.</span></h1>
+    <p>Live rental prices from the OctaSpace marketplace, checked against published Vast.ai and RunPod rates. No estimates, no cherry-picking — the methodology is at the bottom.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://cube.octa.computer/marketplace/compute" target="_blank" rel="noopener">Rent on OctaSpace →</a>
+      <button class="btn btn-ghost" id="refreshBtn">Refresh live prices</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">GPUs tracked</div><div class="v" id="statGpus">—</div><div class="s">with competitor list prices</div></div>
+      <div class="stat"><div class="k">RTX 4090 on OctaSpace</div><div class="v" id="stat4090">—</div><div class="s">live average asking price</div></div>
+      <div class="stat"><div class="k">Avg. savings</div><div class="v" id="statSave">—</div><div class="s" id="statSaveSub"></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head">
+      <h2>Live price comparison</h2>
+      <p>OctaSpace prices refresh automatically from the marketplace API. Competitor columns are dated snapshots with sources — hover the badges for caveats.</p>
+    </div>
+    <div class="table-scroll">
+      <table id="priceTable"></table>
+    </div>
+    <div class="chips" id="extraChips"></div>
+    <p style="color:var(--muted);font-size:13px;margin-top:14px">Also live on OctaSpace right now — GPUs without a published competitor price to compare against.</p>
+  </section>
+
+  <section class="block">
+    <div class="sec-head">
+      <h2>Monthly cost calculator</h2>
+      <p>Pick a GPU and your daily usage. Watch what the bill looks like on each platform.</p>
+    </div>
+    <div class="calc">
+      <div>
+        <label for="calcGpu">GPU</label>
+        <select id="calcGpu"></select>
+        <label for="calcHours">Usage</label>
+        <input type="range" id="calcHours" min="1" max="24" step="1" value="8">
+        <div class="hours-val" id="hoursVal">8<span class="u"> hrs / day</span></div>
+      </div>
+      <div class="bars" id="calcBars"></div>
+      <div class="calc-note" id="calcNote"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head">
+      <h2>It's not just the hourly rate</h2>
+      <p>Price wins the comparison — these win the second month.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why"><div class="ico">⏱️</div><h3>Pay per minute</h3><p>No subscriptions, no hourly rounding games. Spin up, run, shut down — you pay for what you used.</p></div>
+      <div class="why"><div class="ico">🧰</div><h3>One account, everything</h3><p>GPU compute, decentralized VPN, and distributed rendering under a single login. No juggling five vendors.</p></div>
+      <div class="why"><div class="ico">🪟</div><h3>Windows &amp; Linux</h3><p>The only decentralized compute network running provider nodes on both Windows and Linux — more supply, more choice.</p></div>
+      <div class="why"><div class="ico">📦</div><h3>Containers or full VMs</h3><p>Docker images for quick jobs, full KVM virtual machines with GPU passthrough when you need the whole box.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><h2>Methodology &amp; sources</h2></div>
+    <div class="method">
+      <h3>How each column is built</h3>
+      <div class="table-scroll" style="margin-bottom:8px"><table class="src-table" id="srcTable"></table></div>
+      <h3>What the badges mean</h3>
+      <ul>
+        <li><b style="color:var(--green)">LIVE</b> — fetched from the OctaSpace marketplace API in your browser just now.</li>
+        <li><b style="color:var(--amber)">few listings</b> — fewer than 5 listings; the average can swing on a single provider's price.</li>
+        <li><b style="color:var(--red)">verify live</b> — the average sits far below every competitor; likely a mispriced or test listing. Check the marketplace before counting on it.</li>
+        <li><b style="color:var(--muted)">snapshot</b> — a published list price, verified on the date shown. Marketplaces move; treat as a reference, not a quote.</li>
+      </ul>
+      <h3>What's excluded</h3>
+      <ul>
+        <li>Platform fees, storage, and egress — excluded from <em>all</em> columns equally.</li>
+        <li>Vast.ai interruptible (spot) instances — cheaper, but preemptible; this table compares on-demand to on-demand.</li>
+        <li>OctaSpace's A100 row is the 40 GB SXM4 variant; competitor A100 rows are 80 GB cards.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--text)">GPU Price Index</b> is an independent community project. Not affiliated with OctaSpace, Vast.ai, or RunPod. Prices are references, not quotes — always confirm on the provider's site before renting.</p>
+    <div class="attrs">
+      <span>Built by <a href="https://github.com/Kshot3000" target="_blank" rel="noopener">Kshot3000</a></span>
+      <span><a href="https://x.com/kshot9000" target="_blank" rel="noopener">@kshot9000</a></span>
+    </div>
+    <div class="donate">OCTA/ETH: 0x4b6f3BC697D9dAF3e8dE182aEc56eD208B9087f1</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+/* GPU Price Index — live OctaSpace prices vs published competitor rates.
+   Honesty rules baked in:
+   - OctaSpace = live average asking price, listing count shown.
+   - <5 listings -> "few listings" badge. Price <35% of cheapest competitor -> "verify live" badge.
+   - Competitor columns are dated snapshots with sources, never presented as live. */
+
+const OCTA_API = "https://api.octa.computer/network";
+const LOW_DATA_N = 5;
+const OUTLIER_RATIO = 0.35;
+
+const $ = (s) => document.querySelector(s);
+const fmt$ = (n) => "$" + n.toFixed(2);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+let DATA = null;
+let octaLive = null; // {name: {avg_price, count}}
+let octaLiveAt = null;
+let octaIsLive = false;
+
+async function loadData() {
+  const res = await fetch("data/competitors.json");
+  DATA = await res.json();
+  try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 8000);
+    const r = await fetch(OCTA_API, { signal: ctrl.signal });
+    clearTimeout(t);
+    if (!r.ok) throw new Error("API " + r.status);
+    const j = await r.json();
+    octaLive = j.marketplace.gpus;
+    octaLiveAt = new Date();
+    octaIsLive = true;
+  } catch (e) {
+    octaLive = DATA.fallbackOcta.gpus;
+    octaLiveAt = new Date(DATA.fallbackOcta.captured);
+    octaIsLive = false;
+  }
+  render();
+}
+
+function octaFor(gpu) {
+  const o = octaLive[gpu.octa_match];
+  return o || null;
+}
+
+function competitorMin(prices) {
+  const vals = Object.values(prices).filter((v) => typeof v === "number");
+  return vals.length ? Math.min(...vals) : null;
+}
+
+let firstRender = true;
+
+function render() {
+  renderMeta();
+  renderTable();
+  renderChips();
+  renderCalc(firstRender);
+  renderSources();
+  firstRender = false;
+}
+
+function renderMeta() {
+  const livePill = $("#livePill");
+  const when = octaLiveAt.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+  livePill.innerHTML = octaIsLive
+    ? `<span class="pulse"></span> OctaSpace prices live · updated ${esc(when)}`
+    : `<span class="pulse" style="background:var(--amber)"></span> OctaSpace snapshot · ${esc(when)} (live fetch failed)`;
+
+  // hero stats
+  const rows = DATA.gpus.map((g) => ({ g, o: octaFor(g) })).filter((r) => r.o);
+  const cheapest4090 = rows.find((r) => r.g.id === "rtx4090");
+  const savings = rows
+    .map((r) => {
+      const sec = r.g.prices.runpod_secure;
+      return sec && r.o ? (sec - r.o.avg_price) / sec : null;
+    })
+    .filter((v) => v !== null && v > 0);
+  const avgSave = savings.length ? savings.reduce((a, b) => a + b, 0) / savings.length : 0;
+
+  $("#statGpus").innerHTML = `${rows.length}<span class="unit"> GPUs tracked</span>`;
+  $("#stat4090").innerHTML = cheapest4090 ? `${fmt$(cheapest4090.o.avg_price)}<span class="unit">/hr RTX 4090</span>` : "—";
+  $("#statSave").innerHTML = `${Math.round(avgSave * 100)}%<span class="unit"> avg savings vs RunPod Secure</span>`;
+  $("#statSaveSub").textContent = `across ${savings.length} GPUs with comparable list prices`;
+}
+
+function priceCell(o) {
+  if (!o) return `<span class="na">—</span>`;
+  let badges = `<span class="badge badge-live">LIVE</span>`;
+  if (o.count < LOW_DATA_N) badges += `<span class="badge badge-low" title="Fewer than ${LOW_DATA_N} listings — the average can swing on a single listing.">few listings</span>`;
+  return `<span class="price">${fmt$(o.avg_price)}<span class="per">/hr</span></span>${badges}<span class="listings">${o.count} listing${o.count === 1 ? "" : "s"}</span>`;
+}
+
+function renderTable() {
+  const P = DATA.providers;
+  const head = `
+    <tr>
+      <th>GPU</th>
+      <th>OctaSpace<span class="sub">live avg asking price</span></th>
+      <th>Vast.ai<span class="sub">cheapest on-demand · ${esc(P.vast.updated)}</span></th>
+      <th>RunPod<span class="sub">Community · ${esc(P.runpod_community.updated)}</span></th>
+      <th>RunPod<span class="sub">Secure · ${esc(P.runpod_secure.updated)}</span></th>
+      <th>You save<span class="sub">vs RunPod Secure</span></th>
+    </tr>`;
+  const body = DATA.gpus.map((g) => {
+    const o = octaFor(g);
+    const minComp = competitorMin(g.prices);
+    let saveCell = `<span class="na">—</span>`;
+    let verifyBadge = "";
+    if (o && typeof g.prices.runpod_secure === "number") {
+      const s = (g.prices.runpod_secure - o.avg_price) / g.prices.runpod_secure;
+      saveCell = s >= 0
+        ? `<span class="save">−${Math.round(s * 100)}%</span>`
+        : `<span class="save neg">+${Math.round(-s * 100)}%</span>`;
+    }
+    if (o && minComp && o.avg_price < OUTLIER_RATIO * minComp) {
+      verifyBadge = `<span class="badge badge-verify" title="This average is far below every competitor — likely a mispriced or test listing. Check the live marketplace before counting on it.">verify live</span>`;
+    }
+    const vramNote = g.vram_note ? ` <span title="${esc(g.vram_note)}" style="cursor:help">*</span>` : "";
+    const comp = (k, from) => typeof g.prices[k] === "number"
+      ? `<span class="price">${from ? `<span style="font-size:12px;color:var(--muted);font-weight:500">from </span>` : ""}${fmt$(g.prices[k])}<span class="per">/hr</span></span><span class="badge badge-snap">snapshot</span>`
+      : `<span class="na">—</span>`;
+    return `<tr>
+      <td class="gpu-name">${esc(g.name)}<span class="vram">${esc(g.vram)}${vramNote}</span></td>
+      <td class="octa-cell">${priceCell(o)}${verifyBadge}</td>
+      <td>${comp("vast", true)}</td>
+      <td>${comp("runpod_community")}</td>
+      <td>${comp("runpod_secure")}</td>
+      <td>${saveCell}</td>
+    </tr>`;
+  }).join("");
+  $("#priceTable").innerHTML = `<thead>${head}</thead><tbody>${body}</tbody>`;
+}
+
+function renderChips() {
+  const matched = new Set(DATA.gpus.map((g) => g.octa_match));
+  const extra = Object.entries(octaLive)
+    .filter(([name]) => !matched.has(name))
+    .sort((a, b) => b[1].count - a[1].count);
+  $("#extraChips").innerHTML = extra.map(([name, d]) => {
+    const short = name.replace(/NVIDIA\s*/g, "").replace(/GeForce\s*/g, "").trim();
+    const low = d.count < LOW_DATA_N ? ` <span class="n">· few listings</span>` : "";
+    return `<span class="chip">${esc(short)} <b>${fmt$(d.avg_price)}/hr</b><span class="n"> · ${d.count} listings${low}</span></span>`;
+  }).join("") || `<span class="chip">No additional listings right now</span>`;
+}
+
+let calcState = { gpu: "rtx4090", hours: 8 };
+
+function renderCalc(reset) {
+  const sel = $("#calcGpu");
+  if (reset || !sel.options.length) {
+    sel.innerHTML = DATA.gpus.map((g) => `<option value="${g.id}">${esc(g.name)} (${esc(g.vram)})</option>`).join("");
+    sel.value = calcState.gpu;
+  }
+  const hrs = $("#calcHours");
+  hrs.value = calcState.hours;
+  $("#hoursVal").innerHTML = `${calcState.hours}<span class="u"> hrs / day</span>`;
+
+  const g = DATA.gpus.find((x) => x.id === sel.value);
+  const o = octaFor(g);
+  const month = (p) => p * calcState.hours * 30;
+  const rows = [
+    { name: "OctaSpace", sub: octaIsLive ? "live" : "snapshot", price: o ? o.avg_price : null, hot: true },
+    { name: "Vast.ai", sub: "from", price: g.prices.vast ?? null },
+    { name: "RunPod Community", sub: "", price: g.prices.runpod_community ?? null },
+    { name: "RunPod Secure", sub: "", price: g.prices.runpod_secure ?? null },
+  ].filter((r) => r.price !== null);
+
+  const max = Math.max(...rows.map((r) => month(r.price)));
+  $("#calcBars").innerHTML = rows.map((r) => {
+    const c = month(r.price);
+    const w = max ? (c / max) * 100 : 0;
+    const color = r.hot ? "linear-gradient(90deg, var(--accent), var(--accent2))" : "linear-gradient(90deg, #3a3a55, #55557a)";
+    return `<div class="bar-row">
+      <span class="nm">${esc(r.name)}${r.sub ? ` <span style="color:var(--muted);font-weight:400;font-size:12px">${esc(r.sub)}</span>` : ""}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${w.toFixed(1)}%;background:${color}"></div></div>
+      <span class="cost">${fmt$(c)}<span style="font-size:12px;color:var(--muted);font-weight:500">/mo</span></span>
+    </div>`;
+  }).join("");
+
+  const octaRow = rows.find((r) => r.hot);
+  const secureRow = rows.find((r) => r.name === "RunPod Secure");
+  if (octaRow && secureRow) {
+    const diff = month(secureRow.price) - month(octaRow.price);
+    $("#calcNote").innerHTML = diff >= 0
+      ? `Running this GPU <b>${calcState.hours} hrs/day</b> costs <b style="color:var(--green)">${fmt$(diff)}/month less</b> on OctaSpace than on RunPod Secure Cloud.`
+      : `At <b>${calcState.hours} hrs/day</b>, RunPod Secure is currently cheaper for this GPU — the table above shows the full picture.`;
+  } else {
+    $("#calcNote").textContent = "Monthly estimate = hourly price × hours/day × 30 days.";
+  }
+}
+
+function renderSources() {
+  const P = DATA.providers;
+  $("#srcTable").innerHTML = `<thead><tr><th>Column</th><th>Type</th><th>As of</th><th>Source</th></tr></thead><tbody>
+    ${["octaspace", "vast", "runpod_community", "runpod_secure"].map((k) => {
+      const p = P[k];
+      const tier = p.tier ? ` (${esc(p.tier)})` : "";
+      const kind = p.kind === "live" ? "Live API" : "Manual snapshot";
+      const asof = p.kind === "live" ? (octaIsLive ? "just now" : esc(DATA.fallbackOcta.captured.slice(0, 10))) : esc(p.updated);
+      return `<tr><td><b>${esc(p.name)}</b>${tier}</td><td>${kind}</td><td>${asof}</td><td><a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.sourceLabel)}</a></td></tr>`;
+    }).join("")}
+  </tbody>`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("#calcGpu").addEventListener("change", (e) => { calcState.gpu = e.target.value; renderCalc(false); });
+  $("#calcHours").addEventListener("input", (e) => { calcState.hours = parseInt(e.target.value, 10); renderCalc(false); });
+  $("#refreshBtn").addEventListener("click", async () => {
+    $("#refreshBtn").textContent = "Refreshing…";
+    await loadData();
+    $("#refreshBtn").textContent = "Refresh live prices";
+  });
+  loadData();
+  // refresh OctaSpace prices every 5 minutes
+  setInterval(loadData, 5 * 60 * 1000);
+});
