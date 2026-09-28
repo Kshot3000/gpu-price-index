@@ -1,6 +1,6 @@
 {
   "fallbackOcta": {
-    "captured": "2026-09-28T03:53:02Z",
+    "captured": "2026-09-28T09:51:45Z",
     "gpus": {
       "NVIDIA A100-SXM4-40GB": {
         "avg_price": 0.48,
@@ -27,12 +27,12 @@
         "count": 9
       },
       "NVIDIA GeForce RTX 5080": {
-        "avg_price": 0.34,
-        "count": 18
+        "avg_price": 0.33,
+        "count": 19
       },
       "NVIDIA GeForce RTX 5090": {
-        "avg_price": 0.64,
-        "count": 58
+        "avg_price": 0.67,
+        "count": 59
       },
       "NVIDIA H100 80GB HBM3": {
         "avg_price": 0.12,
@@ -63,7 +63,7 @@
       "prices": {
         "runpod_community": 0.34,
         "runpod_secure": 0.74,
-        "vast": 0.2
+        "vast": 0.17
       },
       "vram": "24 GB"
     },
@@ -74,7 +74,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.2
+        "vast": 0.27
       },
       "vram": "32 GB"
     },
@@ -126,7 +126,7 @@
       "name": "RTX 4080",
       "octa_match": "NVIDIA GeForce RTX 4080",
       "prices": {
-        "vast": 0.17
+        "vast": 0.15
       },
       "vram": "16 GB"
     },
@@ -135,7 +135,7 @@
       "name": "RTX 5070",
       "octa_match": "NVIDIA GeForce RTX 5070",
       "prices": {
-        "vast": 0.12
+        "vast": 0.11
       },
       "vram": "12 GB"
     },
@@ -144,7 +144,7 @@
       "name": "RTX 5080",
       "octa_match": "NVIDIA GeForce RTX 5080",
       "prices": {
-        "vast": 0.2
+        "vast": 0.08
       },
       "vram": "16 GB"
     }
