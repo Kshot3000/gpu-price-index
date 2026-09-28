@@ -115,8 +115,8 @@ function renderTable() {
     if (o && typeof g.prices.runpod_secure === "number") {
       const s = (g.prices.runpod_secure - o.avg_price) / g.prices.runpod_secure;
       saveCell = s >= 0
-        ? `<span class="save">−${Math.round(s * 100)}%</span>`
-        : `<span class="save neg">+${Math.round(-s * 100)}%</span>`;
+        ? `<span class="save">+${Math.round(s * 100)}%</span>`
+        : `<span class="save neg">−${Math.round(-s * 100)}%</span>`;
     }
     if (o && minComp && o.avg_price < OUTLIER_RATIO * minComp) {
       verifyBadge = `<span class="badge badge-verify" title="This average is far below every competitor — likely a mispriced or test listing. Check the live marketplace before counting on it.">verify live</span>`;
