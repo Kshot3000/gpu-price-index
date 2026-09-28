@@ -165,11 +165,11 @@
     "runpod_community": {
       "kind": "snapshot",
       "name": "RunPod",
-      "note": "Official published Community Cloud rates (vetted third-party hosts).",
-      "source": "https://www.runpod.io/pricing",
-      "sourceLabel": "runpod.io/pricing",
+      "note": "Community Cloud rates (vetted third-party hosts). Re-verified 2026-09-28 against a September 2026 third-party review and recent in-console quotes \u2014 all six tracked GPUs unchanged since 2026-09-13. RunPod's public pricing page no longer lists Community Cloud rates, so this column cites a dated review quoting current Community prices.",
+      "source": "https://gpu-hosting.org/runpod-review-an-in-depth-look-at-cloud-gpu-computing/",
+      "sourceLabel": "gpu-hosting.org (Sep 2026 review)",
       "tier": "Community Cloud",
-      "updated": "2026-09-13"
+      "updated": "2026-09-28"
     },
     "runpod_secure": {
       "kind": "snapshot",
