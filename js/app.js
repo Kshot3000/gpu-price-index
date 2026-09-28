@@ -85,7 +85,11 @@ function renderMeta() {
 
 function priceCell(o) {
   if (!o) return `<span class="na">—</span>`;
-  let badges = `<span class="badge badge-live">LIVE</span>`;
+  // Honesty rule: when the live API fetch failed and we're showing the baked
+  // snapshot, the cell must not claim LIVE — use the snapshot badge instead.
+  let badges = octaIsLive
+    ? `<span class="badge badge-live">LIVE</span>`
+    : `<span class="badge badge-snap" title="Live OctaSpace fetch failed — showing the baked snapshot captured ${esc(DATA.fallbackOcta.captured.slice(0, 10))}.">snapshot</span>`;
   if (o.count < LOW_DATA_N) badges += `<span class="badge badge-low" title="Fewer than ${LOW_DATA_N} listings — the average can swing on a single listing.">few listings</span>`;
   return `<span class="price">${fmt$(o.avg_price)}<span class="per">/hr</span></span>${badges}<span class="listings">${o.count} listing${o.count === 1 ? "" : "s"}</span>`;
 }
