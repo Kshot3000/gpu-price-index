@@ -47,7 +47,7 @@
       <table id="priceTable"></table>
     </div>
     <div class="chips" id="extraChips"></div>
-    <p style="color:var(--muted);font-size:13px;margin-top:14px">A — in a competitor column means no published list price was available for that GPU — the OctaSpace live average stands on its own. RunPod publishes no list prices for the RTX 4070, 4080, 5070, or 5080 (checked 2026-09-28 on runpod.io/pricing), so those cells stay empty; Vast.ai 'from' prices are filled for all four.</p>
+    <p style="color:var(--muted);font-size:13px;margin-top:14px">A — in a competitor column means no published list price was available for that GPU — the OctaSpace live average stands on its own. RunPod publishes no list prices for the RTX 4070, 4080, 5070, or 5080 (checked 2026-09-28 on runpod.io/pricing), so those cells stay empty; Vast.ai spot-tier 'from' prices are filled for all four.</p>
   </section>
 
   <section class="block">
@@ -96,7 +96,7 @@
       <h3>What's excluded</h3>
       <ul>
         <li>Platform fees, storage, and egress — excluded from <em>all</em> columns equally.</li>
-        <li>Vast.ai interruptible (spot) instances — cheaper, but preemptible; this table compares on-demand to on-demand.</li>
+        <li>Vast.ai's column shows the cheapest "from" offers on its <b>spot (interruptible) tier</b> — the lowest prices Vast.ai publishes, so this comparison gives Vast.ai its best case. Spot instances can be preempted; standard on-demand rates run higher. OctaSpace rentals bill per minute and are not preempted.</li>
         <li>OctaSpace's A100 row is the 40 GB SXM4 variant; competitor A100 rows are 80 GB cards.</li>
       </ul>
     </div>
@@ -115,6 +115,6 @@
   </div>
 </footer>
 
-<script src="js/app.js?v=2"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>

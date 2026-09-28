@@ -18,7 +18,7 @@ let octaLiveAt = null;
 let octaIsLive = false;
 
 async function loadData() {
-  const res = await fetch("data/competitors.json?v=2");
+  const res = await fetch("data/competitors.json?v=3");
   DATA = await res.json();
   try {
     const ctrl = new AbortController();
@@ -102,7 +102,7 @@ function renderTable() {
     <tr>
       <th>GPU</th>
       <th>OctaSpace<span class="sub">live avg asking price</span></th>
-      <th>Vast.ai<span class="sub">cheapest 'from' offer · ${esc(P.vast.updated)}</span></th>
+      <th>Vast.ai<span class="sub">cheapest 'from' offer · spot tier · ${esc(P.vast.updated)}</span></th>
       <th>RunPod<span class="sub">Community · ${esc(P.runpod_community.updated)}</span></th>
       <th>RunPod<span class="sub">Secure · ${esc(P.runpod_secure.updated)}</span></th>
       <th>You save<span class="sub">vs RunPod Secure</span></th>

@@ -52,7 +52,7 @@
       "prices": {
         "runpod_community": 0.22,
         "runpod_secure": 0.5,
-        "vast": 0.08
+        "vast": 0.09
       },
       "vram": "24 GB"
     },
@@ -74,7 +74,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.27
+        "vast": 0.31
       },
       "vram": "32 GB"
     },
@@ -85,7 +85,7 @@
       "prices": {
         "runpod_community": 0.33,
         "runpod_secure": 0.53,
-        "vast": 0.16
+        "vast": 0.13
       },
       "vram": "48 GB"
     },
@@ -117,7 +117,7 @@
       "name": "RTX 4070",
       "octa_match": "NVIDIA GeForce RTX 4070",
       "prices": {
-        "vast": 0.11
+        "vast": 0.07
       },
       "vram": "12 GB"
     },
@@ -126,7 +126,7 @@
       "name": "RTX 4080",
       "octa_match": "NVIDIA GeForce RTX 4080",
       "prices": {
-        "vast": 0.15
+        "vast": 0.17
       },
       "vram": "16 GB"
     },
@@ -135,7 +135,7 @@
       "name": "RTX 5070",
       "octa_match": "NVIDIA GeForce RTX 5070",
       "prices": {
-        "vast": 0.11
+        "vast": 0.18
       },
       "vram": "12 GB"
     },
@@ -144,7 +144,7 @@
       "name": "RTX 5080",
       "octa_match": "NVIDIA GeForce RTX 5080",
       "prices": {
-        "vast": 0.08
+        "vast": 0.16
       },
       "vram": "16 GB"
     }
@@ -183,7 +183,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pull listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
+      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-28 ~17:35 UTC. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pulls listed only 80GB A100 variants (SXM $0.33 / PCIe $0.40), which do not match this row's 40GB SXM4 SKU.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-28",
