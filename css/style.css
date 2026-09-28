@@ -170,6 +170,7 @@ td.octa-cell { background: rgba(255,122,26,.06); }
 .method a { color: var(--accent2); }
 .src-table { width: 100%; min-width: 0; font-size: 13px; }
 .src-table td, .src-table th { padding: 10px 12px; }
+.src-note { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 4px; max-width: 420px; line-height: 1.45; }
 
 /* ---------- footer ---------- */
 footer { border-top: 1px solid var(--border); padding: 36px 0; margin-top: 20px; }

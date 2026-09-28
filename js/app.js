@@ -96,7 +96,7 @@ function renderTable() {
     <tr>
       <th>GPU</th>
       <th>OctaSpace<span class="sub">live avg asking price</span></th>
-      <th>Vast.ai<span class="sub">cheapest on-demand · ${esc(P.vast.updated)}</span></th>
+      <th>Vast.ai<span class="sub">cheapest 'from' offer · ${esc(P.vast.updated)}</span></th>
       <th>RunPod<span class="sub">Community · ${esc(P.runpod_community.updated)}</span></th>
       <th>RunPod<span class="sub">Secure · ${esc(P.runpod_secure.updated)}</span></th>
       <th>You save<span class="sub">vs RunPod Secure</span></th>
@@ -195,9 +195,10 @@ function renderSources() {
     ${["octaspace", "vast", "runpod_community", "runpod_secure"].map((k) => {
       const p = P[k];
       const tier = p.tier ? ` (${esc(p.tier)})` : "";
+      const note = p.note ? `<div class="src-note">${esc(p.note)}</div>` : "";
       const kind = p.kind === "live" ? "Live API" : "Manual snapshot";
       const asof = p.kind === "live" ? (octaIsLive ? "just now" : esc(DATA.fallbackOcta.captured.slice(0, 10))) : esc(p.updated);
-      return `<tr><td><b>${esc(p.name)}</b>${tier}</td><td>${kind}</td><td>${asof}</td><td><a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.sourceLabel)}</a></td></tr>`;
+      return `<tr><td><b>${esc(p.name)}</b>${tier}${note}</td><td>${kind}</td><td>${asof}</td><td><a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.sourceLabel)}</a></td></tr>`;
     }).join("")}
   </tbody>`;
 }

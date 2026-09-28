@@ -1,1 +1,193 @@
-{"fallbackOcta":{"captured":"2026-09-28T03:53:02Z","gpus":{"NVIDIA A100-SXM4-40GB":{"avg_price":0.48,"count":1},"NVIDIA GeForce RTX 3090":{"avg_price":0.23,"count":48},"NVIDIA GeForce RTX 4070":{"avg_price":0.28,"count":6},"NVIDIA GeForce RTX 4080":{"avg_price":0.04,"count":2},"NVIDIA GeForce RTX 4090":{"avg_price":0.43,"count":34},"NVIDIA GeForce RTX 5070":{"avg_price":0.18,"count":9},"NVIDIA GeForce RTX 5080":{"avg_price":0.34,"count":18},"NVIDIA GeForce RTX 5090":{"avg_price":0.64,"count":58},"NVIDIA H100 80GB HBM3":{"avg_price":0.12,"count":8},"NVIDIA RTX A6000":{"avg_price":0.2,"count":2}}},"gpus":[{"id":"rtx3090","name":"RTX 3090","octa_match":"NVIDIA GeForce RTX 3090","prices":{"runpod_community":0.22,"runpod_secure":0.5,"vast":0.12},"vram":"24 GB"},{"id":"rtx4090","name":"RTX 4090","octa_match":"NVIDIA GeForce RTX 4090","prices":{"runpod_community":0.34,"runpod_secure":0.74,"vast":0.29},"vram":"24 GB"},{"id":"rtx5090","name":"RTX 5090","octa_match":"NVIDIA GeForce RTX 5090","prices":{"runpod_community":0.69,"runpod_secure":0.99},"vram":"32 GB"},{"id":"rtxa6000","name":"RTX A6000","octa_match":"NVIDIA RTX A6000","prices":{"runpod_community":0.33,"runpod_secure":0.53},"vram":"48 GB"},{"id":"a100","name":"A100","octa_match":"NVIDIA A100-SXM4-40GB","prices":{"runpod_community":1.19,"runpod_secure":1.59,"vast":0.75},"vram":"80 GB","vram_note":"OctaSpace listing is the 40 GB SXM4 variant"},{"id":"h100","name":"H100","octa_match":"NVIDIA H100 80GB HBM3","prices":{"runpod_community":1.99,"runpod_secure":2.89,"vast":1.47},"vram":"80 GB"},{"id":"rtx4070","name":"RTX 4070","octa_match":"NVIDIA GeForce RTX 4070","prices":{},"vram":"12 GB"},{"id":"rtx4080","name":"RTX 4080","octa_match":"NVIDIA GeForce RTX 4080","prices":{},"vram":"16 GB"},{"id":"rtx5070","name":"RTX 5070","octa_match":"NVIDIA GeForce RTX 5070","prices":{},"vram":"12 GB"},{"id":"rtx5080","name":"RTX 5080","octa_match":"NVIDIA GeForce RTX 5080","prices":{},"vram":"16 GB"}],"meta":{"currency":"USD/hr per GPU","methodology":"OctaSpace prices are live averages of current marketplace asking prices, refreshed in your browser. Competitor prices are their published/on-demand list prices, verified on the dates shown. 'From' prices are the cheapest on-demand listing found. Platform fees, storage, and egress are excluded from all columns.","updated":"2026-09-28"},"providers":{"octaspace":{"kind":"live","name":"OctaSpace","note":"Live average asking price across current marketplace listings. Refreshes automatically.","source":"https://api.octa.computer/network","sourceLabel":"api.octa.computer (live)"},"runpod_community":{"kind":"snapshot","name":"RunPod","note":"Official published Community Cloud rates (vetted third-party hosts).","source":"https://www.runpod.io/pricing","sourceLabel":"runpod.io/pricing","tier":"Community Cloud","updated":"2026-09-13"},"runpod_secure":{"kind":"snapshot","name":"RunPod","note":"Official published Secure Cloud rates (Tier 3/4 data centers).","source":"https://www.runpod.io/pricing","sourceLabel":"runpod.io/pricing","tier":"Secure Cloud","updated":"2026-09-13"},"vast":{"kind":"snapshot","name":"Vast.ai","note":"Cheapest on-demand listing found ('from' prices). Vast.ai is a marketplace \u2014 prices move hourly.","source":"https://www.aitooldiscovery.com/ai-infra/vast-ai-review","sourceLabel":"aitooldiscovery.com Vast.ai review","updated":"2026-09-27"}}}
+{
+  "fallbackOcta": {
+    "captured": "2026-09-28T03:53:02Z",
+    "gpus": {
+      "NVIDIA A100-SXM4-40GB": {
+        "avg_price": 0.48,
+        "count": 1
+      },
+      "NVIDIA GeForce RTX 3090": {
+        "avg_price": 0.23,
+        "count": 48
+      },
+      "NVIDIA GeForce RTX 4070": {
+        "avg_price": 0.28,
+        "count": 6
+      },
+      "NVIDIA GeForce RTX 4080": {
+        "avg_price": 0.04,
+        "count": 2
+      },
+      "NVIDIA GeForce RTX 4090": {
+        "avg_price": 0.43,
+        "count": 34
+      },
+      "NVIDIA GeForce RTX 5070": {
+        "avg_price": 0.18,
+        "count": 9
+      },
+      "NVIDIA GeForce RTX 5080": {
+        "avg_price": 0.34,
+        "count": 18
+      },
+      "NVIDIA GeForce RTX 5090": {
+        "avg_price": 0.64,
+        "count": 58
+      },
+      "NVIDIA H100 80GB HBM3": {
+        "avg_price": 0.12,
+        "count": 8
+      },
+      "NVIDIA RTX A6000": {
+        "avg_price": 0.2,
+        "count": 2
+      }
+    }
+  },
+  "gpus": [
+    {
+      "id": "rtx3090",
+      "name": "RTX 3090",
+      "octa_match": "NVIDIA GeForce RTX 3090",
+      "prices": {
+        "runpod_community": 0.22,
+        "runpod_secure": 0.5,
+        "vast": 0.08
+      },
+      "vram": "24 GB"
+    },
+    {
+      "id": "rtx4090",
+      "name": "RTX 4090",
+      "octa_match": "NVIDIA GeForce RTX 4090",
+      "prices": {
+        "runpod_community": 0.34,
+        "runpod_secure": 0.74,
+        "vast": 0.2
+      },
+      "vram": "24 GB"
+    },
+    {
+      "id": "rtx5090",
+      "name": "RTX 5090",
+      "octa_match": "NVIDIA GeForce RTX 5090",
+      "prices": {
+        "runpod_community": 0.69,
+        "runpod_secure": 0.99,
+        "vast": 0.2
+      },
+      "vram": "32 GB"
+    },
+    {
+      "id": "rtxa6000",
+      "name": "RTX A6000",
+      "octa_match": "NVIDIA RTX A6000",
+      "prices": {
+        "runpod_community": 0.33,
+        "runpod_secure": 0.53,
+        "vast": 0.16
+      },
+      "vram": "48 GB"
+    },
+    {
+      "id": "a100",
+      "name": "A100",
+      "octa_match": "NVIDIA A100-SXM4-40GB",
+      "prices": {
+        "runpod_community": 1.19,
+        "runpod_secure": 1.59,
+        "vast": 0.75
+      },
+      "vram": "80 GB",
+      "vram_note": "OctaSpace listing is the 40 GB SXM4 variant"
+    },
+    {
+      "id": "h100",
+      "name": "H100",
+      "octa_match": "NVIDIA H100 80GB HBM3",
+      "prices": {
+        "runpod_community": 1.99,
+        "runpod_secure": 2.89,
+        "vast": 1.0
+      },
+      "vram": "80 GB"
+    },
+    {
+      "id": "rtx4070",
+      "name": "RTX 4070",
+      "octa_match": "NVIDIA GeForce RTX 4070",
+      "prices": {
+        "vast": 0.11
+      },
+      "vram": "12 GB"
+    },
+    {
+      "id": "rtx4080",
+      "name": "RTX 4080",
+      "octa_match": "NVIDIA GeForce RTX 4080",
+      "prices": {
+        "vast": 0.17
+      },
+      "vram": "16 GB"
+    },
+    {
+      "id": "rtx5070",
+      "name": "RTX 5070",
+      "octa_match": "NVIDIA GeForce RTX 5070",
+      "prices": {
+        "vast": 0.12
+      },
+      "vram": "12 GB"
+    },
+    {
+      "id": "rtx5080",
+      "name": "RTX 5080",
+      "octa_match": "NVIDIA GeForce RTX 5080",
+      "prices": {
+        "vast": 0.2
+      },
+      "vram": "16 GB"
+    }
+  ],
+  "meta": {
+    "currency": "USD/hr per GPU",
+    "methodology": "OctaSpace prices are live averages of current marketplace asking prices, refreshed in your browser. Competitor prices are verified on the dates shown. 'From' prices are the cheapest offer found (Vast.ai = spot tier). Platform fees, storage, and egress are excluded from all columns.",
+    "updated": "2026-09-28"
+  },
+  "providers": {
+    "octaspace": {
+      "kind": "live",
+      "name": "OctaSpace",
+      "note": "Live average asking price across current marketplace listings. Refreshes automatically.",
+      "source": "https://api.octa.computer/network",
+      "sourceLabel": "api.octa.computer (live)"
+    },
+    "runpod_community": {
+      "kind": "snapshot",
+      "name": "RunPod",
+      "note": "Official published Community Cloud rates (vetted third-party hosts).",
+      "source": "https://www.runpod.io/pricing",
+      "sourceLabel": "runpod.io/pricing",
+      "tier": "Community Cloud",
+      "updated": "2026-09-13"
+    },
+    "runpod_secure": {
+      "kind": "snapshot",
+      "name": "RunPod",
+      "note": "Official published Secure Cloud rates (Tier 3/4 data centers).",
+      "source": "https://www.runpod.io/pricing",
+      "sourceLabel": "runpod.io/pricing",
+      "tier": "Secure Cloud",
+      "updated": "2026-09-13"
+    },
+    "vast": {
+      "kind": "snapshot",
+      "name": "Vast.ai",
+      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pull listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
+      "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
+      "sourceLabel": "madebyagents.com GPU rental index",
+      "updated": "2026-09-28",
+      "tier": "Cheapest offer (spot)"
+    }
+  }
+}

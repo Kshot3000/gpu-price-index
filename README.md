@@ -13,10 +13,12 @@ Built by [@kshot9000](https://x.com/kshot9000).
 - **OctaSpace column — live.** The page fetches the current marketplace average asking price per
   GPU from the CORS-open OctaSpace network API (`api.octa.computer`) and auto-refreshes every
   5 minutes. A baked `data/competitors.json` snapshot is the fallback if the API is unreachable.
-- **Competitor columns — dated snapshots.** Vast.ai ("from" on-demand prices) and RunPod
-  (Community + Secure Cloud official rates) are published list prices, each labeled with the
-  date it was verified and a link to its source. They do not move in real time — hover any
-  badge for the caveats.
+- **Competitor columns — dated snapshots.** Vast.ai figures are the cheapest "from" offers
+  (spot tier) from the [hourly-refreshed madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices)
+  (refreshed 2026-09-28; the marketplace moves hourly, so treat these as directional), and RunPod
+  (Community + Secure Cloud official rates from [runpod.io/pricing](https://www.runpod.io/pricing),
+  verified 2026-09-13). Each is labeled with the date it was verified and a link to its source.
+  They do not move in real time — hover any badge for the caveats.
 - **Monthly cost calculator.** Pick a GPU and your daily usage to compare the bill across platforms.
 - **Savings math is honest.** If OctaSpace loses on a GPU, the page shows negative savings instead
   of hiding the row.
@@ -30,9 +32,13 @@ The averages are real marketplace data, which means thin or weird data happens. 
   which usually means a mispriced or test listing. Check the live marketplace before counting on it.
 
 Competitor methodology in full: OctaSpace prices are live averages of current asking prices,
-refreshed in your browser. Competitor prices are their published/on-demand list prices verified
-on the dates shown; "from" prices are the cheapest on-demand listing found. Platform fees,
-storage, and egress are excluded from all columns.
+refreshed in your browser. Competitor prices are verified on the dates shown; "from" prices are
+the cheapest offer found (Vast.ai = spot tier). Platform fees, storage, and egress are excluded
+from all columns. Exceptions: the A100 Vast.ai cell ($0.75) retains a 2026-09-27 snapshot from
+aitooldiscovery.com — the 2026-09-28 refresh listed only 80GB A100 variants, which do not match
+this row's 40GB SXM4 SKU, so no figure was swapped in. RunPod has no published Secure/Community
+price for the RTX 4070/4080/5070/5080 (checked 2026-09-28 on runpod.io/pricing), so those cells
+honestly show no figure.
 
 ## Run it locally
 
