@@ -18,7 +18,7 @@ let octaLiveAt = null;
 let octaIsLive = false;
 
 async function loadData() {
-  const res = await fetch("data/competitors.json?v=3");
+  const res = await fetch("data/competitors.json?v=4");
   DATA = await res.json();
   try {
     const ctrl = new AbortController();

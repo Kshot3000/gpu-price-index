@@ -52,7 +52,7 @@
       "prices": {
         "runpod_community": 0.22,
         "runpod_secure": 0.5,
-        "vast": 0.09
+        "vast": 0.08
       },
       "vram": "24 GB"
     },
@@ -63,7 +63,7 @@
       "prices": {
         "runpod_community": 0.34,
         "runpod_secure": 0.74,
-        "vast": 0.17
+        "vast": 0.24
       },
       "vram": "24 GB"
     },
@@ -74,7 +74,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.31
+        "vast": 0.29
       },
       "vram": "32 GB"
     },
@@ -108,7 +108,7 @@
       "prices": {
         "runpod_community": 1.99,
         "runpod_secure": 2.89,
-        "vast": 1.0
+        "vast": 0.85
       },
       "vram": "80 GB"
     },
@@ -117,7 +117,7 @@
       "name": "RTX 4070",
       "octa_match": "NVIDIA GeForce RTX 4070",
       "prices": {
-        "vast": 0.07
+        "vast": 0.1
       },
       "vram": "12 GB"
     },
@@ -183,7 +183,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-28 ~17:35 UTC. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pulls listed only 80GB A100 variants (SXM $0.33 / PCIe $0.40), which do not match this row's 40GB SXM4 SKU.",
+      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-28 ~21:50 UTC. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pulls listed only 80GB A100 variants (SXM $0.13 / PCIe $0.40), which do not match this row's 40GB SXM4 SKU.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-28",
