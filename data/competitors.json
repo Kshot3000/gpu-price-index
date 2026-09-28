@@ -183,7 +183,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) — the marketplace moves hourly, so treat these as directional. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pull listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
+      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pull listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-28",
