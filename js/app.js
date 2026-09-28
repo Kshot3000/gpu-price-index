@@ -74,7 +74,9 @@ function renderMeta() {
       const sec = r.g.prices.runpod_secure;
       return sec && r.o ? (sec - r.o.avg_price) / sec : null;
     })
-    .filter((v) => v !== null && v > 0);
+    // Keep every comparable GPU in the average — including rows where
+    // OctaSpace LOSES (negative savings). Dropping them would inflate the headline.
+    .filter((v) => v !== null);
   const avgSave = savings.length ? savings.reduce((a, b) => a + b, 0) / savings.length : 0;
 
   $("#statGpus").innerHTML = `${rows.length}<span class="unit"> GPUs tracked</span>`;
