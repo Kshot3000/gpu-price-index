@@ -1,6 +1,6 @@
 {
   "fallbackOcta": {
-    "captured": "2026-09-29T07:50:00Z",
+    "captured": "2026-09-29T19:50:00Z",
     "gpus": {
       "NVIDIA A100-SXM4-40GB": {
         "avg_price": 0.48,
@@ -8,15 +8,15 @@
       },
       "NVIDIA GeForce RTX 3090": {
         "avg_price": 0.24,
-        "count": 51
+        "count": 48
       },
       "NVIDIA GeForce RTX 4070": {
-        "avg_price": 0.28,
-        "count": 6
+        "avg_price": 0.24,
+        "count": 7
       },
       "NVIDIA GeForce RTX 4080": {
-        "avg_price": 0.04,
-        "count": 2
+        "avg_price": 0.09,
+        "count": 3
       },
       "NVIDIA GeForce RTX 4090": {
         "avg_price": 0.43,
@@ -27,12 +27,12 @@
         "count": 8
       },
       "NVIDIA GeForce RTX 5080": {
-        "avg_price": 0.37,
-        "count": 15
+        "avg_price": 0.34,
+        "count": 16
       },
       "NVIDIA GeForce RTX 5090": {
-        "avg_price": 0.65,
-        "count": 63
+        "avg_price": 0.66,
+        "count": 58
       },
       "NVIDIA H100 80GB HBM3": {
         "avg_price": 0.12,
