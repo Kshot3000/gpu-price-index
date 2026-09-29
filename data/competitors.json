@@ -52,7 +52,7 @@
       "prices": {
         "runpod_community": 0.22,
         "runpod_secure": 0.5,
-        "vast": 0.08
+        "vast": 0.1
       },
       "vram": "24 GB"
     },
@@ -74,7 +74,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.29
+        "vast": 0.27
       },
       "vram": "32 GB"
     },
@@ -108,7 +108,7 @@
       "prices": {
         "runpod_community": 1.99,
         "runpod_secure": 2.89,
-        "vast": 0.85
+        "vast": 0.69
       },
       "vram": "80 GB"
     },
@@ -117,7 +117,7 @@
       "name": "RTX 4070",
       "octa_match": "NVIDIA GeForce RTX 4070",
       "prices": {
-        "vast": 0.1
+        "vast": 0.09
       },
       "vram": "12 GB"
     },
@@ -135,7 +135,7 @@
       "name": "RTX 5070",
       "octa_match": "NVIDIA GeForce RTX 5070",
       "prices": {
-        "vast": 0.18
+        "vast": 0.16
       },
       "vram": "12 GB"
     },
@@ -152,7 +152,7 @@
   "meta": {
     "currency": "USD/hr per GPU",
     "methodology": "OctaSpace prices are live averages of current marketplace asking prices, refreshed in your browser. Competitor prices are verified on the dates shown. 'From' prices are the cheapest offer found (Vast.ai = spot tier). Platform fees, storage, and egress are excluded from all columns.",
-    "updated": "2026-09-28"
+    "updated": "2026-09-29"
   },
   "providers": {
     "octaspace": {
@@ -174,19 +174,19 @@
     "runpod_secure": {
       "kind": "snapshot",
       "name": "RunPod",
-      "note": "Official published Secure Cloud rates (Tier 3/4 data centers). All six tracked GPUs re-verified unchanged today on runpod.io/pricing.",
+      "note": "Official published Secure Cloud rates (Tier 3/4 data centers). All six tracked GPUs re-verified unchanged today (2026-09-29) on runpod.io/pricing: 3090 $0.50, 4090 $0.74, 5090 $0.99, A6000 $0.53, A100 80GB $1.59, H100 80GB $2.89.",
       "source": "https://www.runpod.io/pricing",
       "sourceLabel": "runpod.io/pricing",
       "tier": "Secure Cloud",
-      "updated": "2026-09-28"
+      "updated": "2026-09-29"
     },
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) — the marketplace moves hourly, so treat these as directional. Pulled 2026-09-28 ~21:50 UTC. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pulls listed only 80GB A100 variants (SXM $0.13 / PCIe $0.40), which do not match this row's 40GB SXM4 SKU.",
+      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) — the marketplace moves hourly, so treat these as directional. Pulled 2026-09-29 ~14:00 UTC. H100 = H100 SXM 80GB HBM3 variant. RTX 4080 and RTX A6000 cells retain the 2026-09-28 pull ($0.17 / $0.13): today's pull showed no cheaper Vast.ai spot headline for those SKUs. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28/29 pulls listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
-      "updated": "2026-09-28",
+      "updated": "2026-09-29",
       "tier": "Cheapest offer (spot)"
     }
   }

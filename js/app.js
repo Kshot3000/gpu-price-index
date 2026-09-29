@@ -19,7 +19,7 @@ let octaIsLive = false;
 
 async function loadData() {
   try {
-    const res = await fetch("data/competitors.json?v=6");
+    const res = await fetch("data/competitors.json?v=7");
     if (!res.ok) throw new Error("data " + res.status);
     DATA = await res.json();
   } catch (e) {
