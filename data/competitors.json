@@ -1,6 +1,6 @@
 {
   "fallbackOcta": {
-    "captured": "2026-09-29T19:50:00Z",
+    "captured": "2026-09-29T23:50:00Z",
     "gpus": {
       "NVIDIA A100-SXM4-40GB": {
         "avg_price": 0.48,
@@ -8,19 +8,19 @@
       },
       "NVIDIA GeForce RTX 3090": {
         "avg_price": 0.24,
-        "count": 48
+        "count": 47
       },
       "NVIDIA GeForce RTX 4070": {
         "avg_price": 0.24,
         "count": 7
       },
       "NVIDIA GeForce RTX 4080": {
-        "avg_price": 0.09,
-        "count": 3
+        "avg_price": 0.04,
+        "count": 2
       },
       "NVIDIA GeForce RTX 4090": {
-        "avg_price": 0.43,
-        "count": 32
+        "avg_price": 0.42,
+        "count": 31
       },
       "NVIDIA GeForce RTX 5070": {
         "avg_price": 0.18,
@@ -28,7 +28,7 @@
       },
       "NVIDIA GeForce RTX 5080": {
         "avg_price": 0.34,
-        "count": 16
+        "count": 15
       },
       "NVIDIA GeForce RTX 5090": {
         "avg_price": 0.66,
@@ -169,7 +169,7 @@
     "runpod_community": {
       "kind": "snapshot",
       "name": "RunPod",
-      "note": "Community Cloud rates (vetted third-party hosts). Re-verified 2026-09-28 against a September 2026 third-party review and recent in-console quotes — all six tracked GPUs unchanged since 2026-09-13. RunPod's public pricing page no longer lists Community Cloud rates, so this column cites a dated review quoting current Community prices.",
+      "note": "Community Cloud rates (vetted third-party hosts). Re-verified 2026-09-28 against a September 2026 third-party review and recent in-console quotes \u2014 all six tracked GPUs unchanged since 2026-09-13. RunPod's public pricing page no longer lists Community Cloud rates, so this column cites a dated review quoting current Community prices.",
       "source": "https://gpu-hosting.org/runpod-review-an-in-depth-look-at-cloud-gpu-computing/",
       "sourceLabel": "gpu-hosting.org (Sep 2026 review)",
       "tier": "Community Cloud",
@@ -187,7 +187,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API — figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) — the marketplace moves hourly, so treat these as directional. Pulled 2026-09-29 ~14:00 UTC. H100 = H100 SXM 80GB HBM3 variant. RTX 4080 and RTX A6000 cells retain the 2026-09-28 pull ($0.17 / $0.13): today's pull showed no cheaper Vast.ai spot headline for those SKUs. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28/29 pulls listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
+      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-29 ~14:00 UTC. H100 = H100 SXM 80GB HBM3 variant. RTX 4080 and RTX A6000 cells retain the 2026-09-28 pull ($0.17 / $0.13): today's pull showed no cheaper Vast.ai spot headline for those SKUs. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28/29 pulls listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-29",
@@ -196,11 +196,11 @@
     "saladcloud": {
       "kind": "snapshot",
       "name": "SaladCloud",
-      "tier": "Community Cloud · Lowest priority tier",
+      "tier": "Community Cloud \u00b7 Lowest priority tier",
       "source": "https://salad.com/salad-container-engine-community/",
       "sourceLabel": "salad.com (Community Cloud pricing)",
       "updated": "2026-09-29",
-      "note": "Official published 'from' rates on the Lowest priority tier (four tiers: High, Medium, Low, Lowest — lower tiers can be preempted by higher-priority workloads). Per-second billing while instances run. List prices changed 2026-09-12; figures captured 2026-09-29: RTX 3090 $0.09, 4090 $0.16, 5080 $0.15, 5090 $0.25. Only these four GPUs publish list rates on the pricing page."
+      "note": "Official published 'from' rates on the Lowest priority tier (four tiers: High, Medium, Low, Lowest \u2014 lower tiers can be preempted by higher-priority workloads). Per-second billing while instances run. List prices changed 2026-09-12; figures captured 2026-09-29: RTX 3090 $0.09, 4090 $0.16, 5080 $0.15, 5090 $0.25. Only these four GPUs publish list rates on the pricing page."
     }
   }
 }
