@@ -1,6 +1,6 @@
 {
   "fallbackOcta": {
-    "captured": "2026-09-29T02:49:17Z",
+    "captured": "2026-09-29T07:50:00Z",
     "gpus": {
       "NVIDIA A100-SXM4-40GB": {
         "avg_price": 0.48,
@@ -8,7 +8,7 @@
       },
       "NVIDIA GeForce RTX 3090": {
         "avg_price": 0.24,
-        "count": 49
+        "count": 51
       },
       "NVIDIA GeForce RTX 4070": {
         "avg_price": 0.28,
@@ -19,7 +19,7 @@
         "count": 2
       },
       "NVIDIA GeForce RTX 4090": {
-        "avg_price": 0.44,
+        "avg_price": 0.43,
         "count": 32
       },
       "NVIDIA GeForce RTX 5070": {
@@ -27,12 +27,12 @@
         "count": 8
       },
       "NVIDIA GeForce RTX 5080": {
-        "avg_price": 0.35,
-        "count": 18
+        "avg_price": 0.37,
+        "count": 15
       },
       "NVIDIA GeForce RTX 5090": {
-        "avg_price": 0.66,
-        "count": 58
+        "avg_price": 0.65,
+        "count": 63
       },
       "NVIDIA H100 80GB HBM3": {
         "avg_price": 0.12,
@@ -165,7 +165,7 @@
     "runpod_community": {
       "kind": "snapshot",
       "name": "RunPod",
-      "note": "Community Cloud rates (vetted third-party hosts). Re-verified 2026-09-28 against a September 2026 third-party review and recent in-console quotes \u2014 all six tracked GPUs unchanged since 2026-09-13. RunPod's public pricing page no longer lists Community Cloud rates, so this column cites a dated review quoting current Community prices.",
+      "note": "Community Cloud rates (vetted third-party hosts). Re-verified 2026-09-28 against a September 2026 third-party review and recent in-console quotes — all six tracked GPUs unchanged since 2026-09-13. RunPod's public pricing page no longer lists Community Cloud rates, so this column cites a dated review quoting current Community prices.",
       "source": "https://gpu-hosting.org/runpod-review-an-in-depth-look-at-cloud-gpu-computing/",
       "sourceLabel": "gpu-hosting.org (Sep 2026 review)",
       "tier": "Community Cloud",
@@ -183,7 +183,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-28 ~21:50 UTC. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pulls listed only 80GB A100 variants (SXM $0.13 / PCIe $0.40), which do not match this row's 40GB SXM4 SKU.",
+      "note": "Hourly-refreshed index of verified-host listings, pulled from the RunPod/Vast.ai public APIs. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) — the marketplace moves hourly, so treat these as directional. Pulled 2026-09-28 ~21:50 UTC. H100 = H100 SXM 80GB HBM3 variant. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): the 2026-09-28 pulls listed only 80GB A100 variants (SXM $0.13 / PCIe $0.40), which do not match this row's 40GB SXM4 SKU.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-28",
