@@ -18,8 +18,20 @@ let octaLiveAt = null;
 let octaIsLive = false;
 
 async function loadData() {
-  const res = await fetch("data/competitors.json?v=5");
-  DATA = await res.json();
+  try {
+    const res = await fetch("data/competitors.json?v=5");
+    if (!res.ok) throw new Error("data " + res.status);
+    DATA = await res.json();
+  } catch (e) {
+    if (!DATA) {
+      // First load failed (offline or blocked fetch): say so instead of a blank page.
+      const pill = $("#livePill");
+      if (pill) pill.textContent = "Couldn\u2019t load price data \u2014 check your connection and refresh.";
+      return;
+    }
+    // Scheduled/manual refresh failed: keep the last good data on screen.
+    return;
+  }
   try {
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 8000);
