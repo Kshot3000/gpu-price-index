@@ -19,7 +19,7 @@ let octaIsLive = false;
 
 async function loadData() {
   try {
-    const res = await fetch("data/competitors.json?v=7");
+    const res = await fetch("data/competitors.json?v=8");
     if (!res.ok) throw new Error("data " + res.status);
     DATA = await res.json();
   } catch (e) {
@@ -115,6 +115,7 @@ function renderTable() {
       <th>GPU</th>
       <th>OctaSpace<span class="sub">live avg asking price</span></th>
       <th>Vast.ai<span class="sub">cheapest 'from' offer · spot tier · ${esc(P.vast.updated)}</span></th>
+      <th>SaladCloud<span class="sub">'from' rate · Lowest priority tier · ${esc(P.saladcloud.updated)}</span></th>
       <th>RunPod<span class="sub">Community · ${esc(P.runpod_community.updated)}</span></th>
       <th>RunPod<span class="sub">Secure · ${esc(P.runpod_secure.updated)}</span></th>
       <th>You save<span class="sub">vs RunPod Secure</span></th>
@@ -141,6 +142,7 @@ function renderTable() {
       <td class="gpu-name">${esc(g.name)}<span class="vram">${esc(g.vram)}${vramNote}</span></td>
       <td class="octa-cell">${priceCell(o)}${verifyBadge}</td>
       <td>${comp("vast", true)}</td>
+      <td>${comp("saladcloud", true)}</td>
       <td>${comp("runpod_community")}</td>
       <td>${comp("runpod_secure")}</td>
       <td>${saveCell}</td>
@@ -179,6 +181,7 @@ function renderCalc(reset) {
   const rows = [
     { name: "OctaSpace", sub: octaIsLive ? "live" : "snapshot", price: o ? o.avg_price : null, hot: true },
     { name: "Vast.ai", sub: "from", price: g.prices.vast ?? null },
+    { name: "SaladCloud", sub: "from · Lowest priority", price: g.prices.saladcloud ?? null },
     { name: "RunPod Community", sub: "", price: g.prices.runpod_community ?? null },
     { name: "RunPod Secure", sub: "", price: g.prices.runpod_secure ?? null },
   ].filter((r) => r.price !== null);
@@ -210,7 +213,7 @@ function renderCalc(reset) {
 function renderSources() {
   const P = DATA.providers;
   $("#srcTable").innerHTML = `<thead><tr><th>Column</th><th>Type</th><th>As of</th><th>Source</th></tr></thead><tbody>
-    ${["octaspace", "vast", "runpod_community", "runpod_secure"].map((k) => {
+    ${["octaspace", "vast", "saladcloud", "runpod_community", "runpod_secure"].map((k) => {
       const p = P[k];
       const tier = p.tier ? ` (${esc(p.tier)})` : "";
       const note = p.note ? `<div class="src-note">${esc(p.note)}</div>` : "";

@@ -3,8 +3,9 @@
 **Live:** https://kshot3000.github.io/gpu-price-index/
 
 Stop overpaying for GPUs. Live rental prices from the [OctaSpace](https://octa.space) marketplace,
-compared side-by-side against published [Vast.ai](https://vast.ai) and [RunPod](https://www.runpod.io/pricing)
-rates — so you can see exactly how much you save.
+compared side-by-side against published [Vast.ai](https://vast.ai), [RunPod](https://www.runpod.io/pricing),
+and [SaladCloud](https://salad.com/salad-container-engine-community/) rates — so you can see exactly
+how much you save.
 
 Built by [@kshot9000](https://x.com/kshot9000).
 
@@ -15,10 +16,13 @@ Built by [@kshot9000](https://x.com/kshot9000).
   5 minutes. A baked `data/competitors.json` snapshot is the fallback if the API is unreachable.
 - **Competitor columns — dated snapshots.** Vast.ai figures are the cheapest "from" offers
   (spot tier) from the [hourly-refreshed madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices)
-  (pulled 2026-09-28 21:50 UTC; the marketplace moves hourly, so treat these as directional), and RunPod
-  (Community + Secure Cloud official rates from [runpod.io/pricing](https://www.runpod.io/pricing):
-  Secure re-verified 2026-09-28 — all six tracked GPUs unchanged; Community snapshot from
-  2026-09-13). Each is labeled with the date it was verified and a link to its source.
+  (pulled 2026-09-29 ~14:00 UTC; the marketplace moves hourly, so treat these as directional),
+  RunPod (Community + Secure Cloud official rates from [runpod.io/pricing](https://www.runpod.io/pricing):
+  Secure re-verified 2026-09-29 — all six tracked GPUs unchanged; Community snapshot from
+  2026-09-13), and SaladCloud (official "from" rates on the Lowest priority tier, from
+  [salad.com Community Cloud pricing](https://salad.com/salad-container-engine-community/) —
+  captured 2026-09-29; only the RTX 3090, 4090, 5080, and 5090 publish list rates there).
+  Each is labeled with the date it was verified and a link to its source.
   They do not move in real time — hover any badge for the caveats.
 - **Monthly cost calculator.** Pick a GPU and your daily usage to compare the bill across platforms.
 - **Savings math is honest.** If OctaSpace loses on a GPU, the page shows negative savings instead
@@ -34,12 +38,13 @@ The averages are real marketplace data, which means thin or weird data happens. 
 
 Competitor methodology in full: OctaSpace prices are live averages of current asking prices,
 refreshed in your browser. Competitor prices are verified on the dates shown; "from" prices are
-the cheapest offer found (Vast.ai = spot tier). Platform fees, storage, and egress are excluded
+the cheapest offer found (Vast.ai = spot tier; SaladCloud = Lowest priority tier). Platform fees, storage, and egress are excluded
 from all columns. Exceptions: the A100 Vast.ai cell ($0.75) retains a 2026-09-27 snapshot from
 aitooldiscovery.com — the 2026-09-28 refresh listed only 80GB A100 variants, which do not match
 this row's 40GB SXM4 SKU, so no figure was swapped in. RunPod has no published Secure/Community
 price for the RTX 4070/4080/5070/5080 (checked 2026-09-28 on runpod.io/pricing), so those cells
-honestly show no figure.
+honestly show no figure. SaladCloud's pricing page publishes list rates for only four GPUs
+(3090, 4090, 5080, 5090), so its other cells show no figure.
 
 ## Run it locally
 

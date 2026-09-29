@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPU Price Index — OctaSpace vs Vast.ai vs RunPod (live prices)</title>
-<meta name="description" content="Live GPU rental prices from the OctaSpace marketplace, compared against published Vast.ai and RunPod rates. See exactly how much you save.">
+<title>GPU Price Index — OctaSpace vs Vast.ai, RunPod & SaladCloud (live prices)</title>
+<meta name="description" content="Live GPU rental prices from the OctaSpace marketplace, compared against published Vast.ai, RunPod, and SaladCloud rates. See exactly how much you save.">
 <meta name="theme-color" content="#0a0a0f">
 <meta property="og:title" content="GPU Price Index — stop overpaying for GPUs">
-<meta property="og:description" content="Live OctaSpace rental prices vs Vast.ai and RunPod. The data, refreshed automatically.">
+<meta property="og:description" content="Live OctaSpace rental prices vs Vast.ai, RunPod & SaladCloud. The data, refreshed automatically.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GPU Price Index">
 <meta property="og:url" content="https://kshot3000.github.io/gpu-price-index/">
-<meta property="og:image" content="https://kshot3000.github.io/gpu-price-index/og-card.png?v=1">
+<meta property="og:image" content="https://kshot3000.github.io/gpu-price-index/og-card.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="GPU Price Index — stop overpaying for GPUs. Live OctaSpace marketplace prices vs published Vast.ai and RunPod rates.">
+<meta property="og:image:alt" content="GPU Price Index — stop overpaying for GPUs. Live OctaSpace marketplace prices vs published Vast.ai, RunPod & SaladCloud rates.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GPU Price Index — stop overpaying for GPUs">
-<meta name="twitter:description" content="Live OctaSpace rental prices vs Vast.ai and RunPod. The data, refreshed automatically.">
+<meta name="twitter:description" content="Live OctaSpace rental prices vs Vast.ai, RunPod & SaladCloud. The data, refreshed automatically.">
+<meta name="twitter:image" content="https://kshot3000.github.io/gpu-price-index/og-card.png?v=2">
 <meta name="twitter:image" content="https://kshot3000.github.io/gpu-price-index/og-card.png?v=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +41,7 @@
 
   <section class="hero">
     <h1>Stop overpaying <span class="hl">for GPUs.</span></h1>
-    <p>Live rental prices from the OctaSpace marketplace, checked against published Vast.ai and RunPod rates. No estimates, no cherry-picking — the methodology is at the bottom.</p>
+    <p>Live rental prices from the OctaSpace marketplace, checked against published Vast.ai, RunPod, and SaladCloud rates. No estimates, no cherry-picking — the methodology is at the bottom.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://cube.octa.computer/marketplace/compute" target="_blank" rel="noopener">Rent on OctaSpace →</a>
       <button class="btn btn-ghost" id="refreshBtn">Refresh live prices</button>
@@ -61,7 +62,7 @@
       <table id="priceTable"></table>
     </div>
     <div class="chips" id="extraChips"></div>
-    <p style="color:var(--muted);font-size:13px;margin-top:14px">A — in a competitor column means no published list price was available for that GPU — the OctaSpace live average stands on its own. RunPod publishes no list prices for the RTX 4070, 4080, 5070, or 5080 (checked 2026-09-28 on runpod.io/pricing), so those cells stay empty; Vast.ai spot-tier 'from' prices are filled for all four.</p>
+    <p style="color:var(--muted);font-size:13px;margin-top:14px">A — in a competitor column means no published list price was available for that GPU — the OctaSpace live average stands on its own. RunPod publishes no list prices for the RTX 4070, 4080, 5070, or 5080 (checked 2026-09-28 on runpod.io/pricing); SaladCloud's pricing page publishes list rates for only four GPUs (RTX 3090, 4090, 5080, 5090 — 'from' rates, Lowest priority tier), so the rest stay empty; Vast.ai spot-tier 'from' prices are filled for all ten.</p>
   </section>
 
   <section class="block">
@@ -111,6 +112,7 @@
       <ul>
         <li>Platform fees, storage, and egress — excluded from <em>all</em> columns equally.</li>
         <li>Vast.ai's column shows the cheapest "from" offers on its <b>spot (interruptible) tier</b> — the lowest prices Vast.ai publishes, so this comparison gives Vast.ai its best case. Spot instances can be preempted; standard on-demand rates run higher. OctaSpace rentals bill per minute and are not preempted.</li>
+        <li>SaladCloud's column shows official "from" rates on the <b>Lowest priority tier</b> — the cheapest of four tiers (High, Medium, Low, Lowest); lower tiers can be preempted by higher-priority workloads, so this gives SaladCloud its best case too. Per-second billing while instances run.</li>
         <li>OctaSpace's A100 row is the 40 GB SXM4 variant; competitor A100 rows are 80 GB cards.</li>
       </ul>
     </div>
@@ -121,7 +123,7 @@
 
 <footer>
   <div class="wrap">
-    <p><b style="color:var(--text)">GPU Price Index</b> is an independent community project. Not affiliated with OctaSpace, Vast.ai, or RunPod. Prices are references, not quotes — always confirm on the provider's site before renting.</p>
+    <p><b style="color:var(--text)">GPU Price Index</b> is an independent community project. Not affiliated with OctaSpace, Vast.ai, RunPod, or SaladCloud. Prices are references, not quotes — always confirm on the provider's site before renting.</p>
     <div class="attrs">
       <span>Built by <a href="https://github.com/Kshot3000" target="_blank" rel="noopener">Kshot3000</a></span>
       <span><a href="https://x.com/kshot9000" target="_blank" rel="noopener">@kshot9000</a></span>
@@ -130,6 +132,6 @@
   </div>
 </footer>
 
-<script src="js/app.js?v=7"></script>
+<script src="js/app.js?v=8"></script>
 </body>
 </html>
