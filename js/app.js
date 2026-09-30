@@ -83,8 +83,8 @@ function renderMeta() {
   const livePill = $("#livePill");
   const when = octaLiveAt.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
   livePill.innerHTML = octaIsLive
-    ? `<span class="pulse"></span> OctaSpace prices live · updated ${esc(when)}`
-    : `<span class="pulse" style="background:var(--amber)"></span> OctaSpace snapshot · ${esc(when)} (live fetch failed)`;
+    ? `<span class="pulse"></span> <span class="pill-txt">OctaSpace prices live · updated ${esc(when)}</span>`
+    : `<span class="pulse" style="background:var(--amber)"></span> <span class="pill-txt">OctaSpace snapshot · ${esc(when)} (live fetch failed)</span>`;
 
   // hero stats
   const rows = DATA.gpus.map((g) => ({ g, o: octaFor(g) })).filter((r) => r.o);
@@ -256,7 +256,7 @@ function renderSources() {
       const note = p.note ? `<div class="src-note">${esc(p.note)}</div>` : "";
       const kind = p.kind === "live" ? "Live API" : "Manual snapshot";
       const asof = p.kind === "live" ? (octaIsLive ? "just now" : esc(DATA.fallbackOcta.captured.slice(0, 10))) : esc(p.updated);
-      return `<tr><td><b>${esc(p.name)}</b>${tier}${note}</td><td>${kind}</td><td>${asof}</td><td><a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.sourceLabel)}</a></td></tr>`;
+      return `<tr><td data-th="Column"><b>${esc(p.name)}</b>${tier}${note}</td><td data-th="Type">${kind}</td><td data-th="As of">${asof}</td><td data-th="Source"><a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.sourceLabel)}</a></td></tr>`;
     }).join("")}
   </tbody>`;
 }

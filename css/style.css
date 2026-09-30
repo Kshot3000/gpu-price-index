@@ -47,7 +47,7 @@ textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
   border-bottom: 1px solid var(--border);
 }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; letter-spacing: -.02em; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; letter-spacing: -.02em; white-space: nowrap; }
 .brand .dot {
   width: 12px; height: 12px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, var(--accent2), var(--accent));
@@ -116,6 +116,18 @@ thead th {
   position: sticky; top: 60px; z-index: 20;
   box-shadow: 0 1px 0 var(--border);
 }
+/* Pin the GPU column while price columns scroll sideways on narrow screens —
+   the row label stays visible so the numbers keep their meaning. The corner
+   header cell sits above the pinned body cells. */
+#priceTable thead th:first-child {
+  left: 0; z-index: 21;
+}
+#priceTable tbody td.gpu-name {
+  position: sticky; left: 0; z-index: 10;
+  background: var(--card);
+  box-shadow: 1px 0 0 var(--border);
+}
+#priceTable tbody tr:hover td.gpu-name { background: #181309; }
 thead th .sub { display: block; text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 11px; margin-top: 2px; }
 tbody td { padding: 16px 18px; border-bottom: 1px solid var(--border); font-size: 15px; vertical-align: middle; }
 tbody tr:last-child td { border-bottom: none; }
@@ -164,7 +176,7 @@ td.octa-cell { background: rgba(255,122,26,.06); }
 .hours-val .u { font-size: 14px; color: var(--muted); font-weight: 500; }
 .bars { display: flex; flex-direction: column; gap: 14px; justify-content: center; }
 .bar-row { display: grid; grid-template-columns: 150px 1fr 110px; align-items: center; gap: 12px; font-size: 14px; }
-.bar-row .nm { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-row .nm { font-weight: 600; line-height: 1.3; }
 .bar-track { height: 26px; background: var(--bg2); border-radius: 8px; overflow: hidden; position: relative; }
 .bar-fill { height: 100%; border-radius: 8px; transition: width .5s cubic-bezier(.2,.8,.2,1); }
 .bar-row .cost { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -209,5 +221,25 @@ footer a { color: var(--accent2); text-decoration: none; }
 }
 @media (max-width: 560px) {
   .why-grid { grid-template-columns: 1fr; }
-  .bar-row { grid-template-columns: 110px 1fr 90px; }
+  .bar-row { grid-template-columns: 104px 1fr 84px; }
+  /* Compact topbar: brand stays on one line, pill truncates its tail */
+  .brand { font-size: 15px; }
+  .topbar .wrap { gap: 10px; }
+  .live-pill { font-size: 11px; padding: 5px 10px; min-width: 0; }
+  .live-pill .pill-txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+/* Methodology table: stack into labeled blocks on narrow screens instead of
+   crushing four columns into unreadable single-word lines. */
+@media (max-width: 640px) {
+  .src-table thead { display: none; }
+  .src-table, .src-table tbody, .src-table tr, .src-table td { display: block; width: 100%; }
+  .src-table tr { border-bottom: 1px solid var(--border); padding: 8px 0; }
+  .src-table tr:last-child { border-bottom: none; }
+  .src-table td { border: none; padding: 5px 14px; }
+  .src-table td::before {
+    content: attr(data-th); display: block;
+    font-size: 11px; text-transform: uppercase; letter-spacing: .07em;
+    color: var(--muted); font-weight: 700; margin-bottom: 2px;
+  }
+  .src-table td:first-child::before { display: none; } /* bold provider name is its own label */
 }
