@@ -52,7 +52,7 @@
       "prices": {
         "runpod_community": 0.22,
         "runpod_secure": 0.5,
-        "vast": 0.11,
+        "vast": 0.12,
         "saladcloud": 0.09
       },
       "vram": "24 GB"
@@ -76,7 +76,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.33,
+        "vast": 0.25,
         "saladcloud": 0.25
       },
       "vram": "32 GB"
@@ -111,7 +111,7 @@
       "prices": {
         "runpod_community": 1.99,
         "runpod_secure": 2.89,
-        "vast": 1.07
+        "vast": 0.89
       },
       "vram": "80 GB"
     },
@@ -120,7 +120,7 @@
       "name": "RTX 4070",
       "octa_match": "NVIDIA GeForce RTX 4070",
       "prices": {
-        "vast": 0.16
+        "vast": 0.08
       },
       "vram": "12 GB"
     },
@@ -138,7 +138,7 @@
       "name": "RTX 5070",
       "octa_match": "NVIDIA GeForce RTX 5070",
       "prices": {
-        "vast": 0.12
+        "vast": 0.11
       },
       "vram": "12 GB"
     },
@@ -187,7 +187,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-30 ~06:51 UTC. H100 = H100 SXM 80GB HBM3 variant. RTX A6000 cell retains the 2026-09-28 pull ($0.13): today's pull showed no cheaper Vast.ai spot headline for that SKU. A100 cell retains the 2026-09-27 aitooldiscovery snapshot ($0.75): today's pull listed only 80GB A100 variants, which do not match this row's 40GB SXM4 SKU.",
+      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-30 ~09:55 UTC (index refreshed 8:52 UTC). H100 = H100 SXM 80GB HBM3 variant. 5 moved this pull: 3090 $0.11->$0.12, 4070 $0.16->$0.08, 5070 $0.12->$0.11, 5090 $0.33->$0.25, H100 SXM $1.07->$0.89. RTX A6000 cell retains the 2026-09-28 pull ($0.13): today's pull has no Vast.ai spot headline for that SKU (cheapest listed is RunPod Community $0.33). A100 cell retains the 2026-09-27 snapshot ($0.75): today's pull lists no 40GB SXM4 Vast.ai spot headline (80GB SXM spot $0.43 / 80GB PCIe spot $0.69 do not match this row's 40GB SXM4 SKU). RTX 4080 retains $0.14: index lists only the 4080 SUPER (RunPod Community $0.28), no plain-4080 Vast.ai spot headline.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-30",
