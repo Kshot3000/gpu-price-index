@@ -18,8 +18,9 @@ Built by [@kshot9000](https://x.com/kshot9000).
   (spot tier) from the [hourly-refreshed madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices)
   (pulled 2026-09-30 ~09:55 UTC; the marketplace moves hourly, so treat these as directional),
   RunPod (Community + Secure Cloud official rates from [runpod.io/pricing](https://www.runpod.io/pricing):
-  Secure re-verified 2026-09-29 — all six tracked GPUs unchanged; Community snapshot from
-  2026-09-13), and SaladCloud (official "from" rates on the Lowest priority tier, from
+  both tiers verified 2026-09-30 directly on the official pricing page — all six tracked GPUs
+  unchanged on both tiers; Community rates re-verified official after RunPod restored them to
+  the pricing page), and SaladCloud (official "from" rates on the Lowest priority tier, from
   [salad.com Community Cloud pricing](https://salad.com/salad-container-engine-community/) —
   captured 2026-09-29; only the RTX 3090, 4090, 5080, and 5090 publish list rates there).
   Each is labeled with the date it was verified and a link to its source.

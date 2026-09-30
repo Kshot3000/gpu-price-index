@@ -1,14 +1,10 @@
 {
   "fallbackOcta": {
-    "captured": "2026-09-30T07:55:00Z",
+    "captured": "2026-09-30T12:48:00Z",
     "gpus": {
-      "NVIDIA A100-SXM4-40GB": {
-        "avg_price": 0.48,
-        "count": 1
-      },
       "NVIDIA GeForce RTX 3090": {
         "avg_price": 0.23,
-        "count": 49
+        "count": 50
       },
       "NVIDIA GeForce RTX 4070": {
         "avg_price": 0.24,
@@ -19,8 +15,8 @@
         "count": 2
       },
       "NVIDIA GeForce RTX 4090": {
-        "avg_price": 0.43,
-        "count": 32
+        "avg_price": 0.42,
+        "count": 33
       },
       "NVIDIA GeForce RTX 5070": {
         "avg_price": 0.17,
@@ -31,8 +27,8 @@
         "count": 14
       },
       "NVIDIA GeForce RTX 5090": {
-        "avg_price": 0.66,
-        "count": 58
+        "avg_price": 0.64,
+        "count": 59
       },
       "NVIDIA H100 80GB HBM3": {
         "avg_price": 0.12,
@@ -41,6 +37,10 @@
       "NVIDIA RTX A6000": {
         "avg_price": 0.2,
         "count": 2
+      },
+      "NVIDIA A100-SXM4-40GB": {
+        "avg_price": 0.48,
+        "count": 1
       }
     }
   },
@@ -169,9 +169,9 @@
     "runpod_community": {
       "kind": "snapshot",
       "name": "RunPod",
-      "note": "Community Cloud rates (vetted third-party hosts). Re-verified 2026-09-28 against a September 2026 third-party review and recent in-console quotes \u2014 all six tracked GPUs unchanged since 2026-09-13. RunPod's public pricing page no longer lists Community Cloud rates, so this column cites a dated review quoting current Community prices.",
-      "source": "https://gpu-hosting.org/runpod-review-an-in-depth-look-at-cloud-gpu-computing/",
-      "sourceLabel": "gpu-hosting.org (Sep 2026 review)",
+      "note": "Official published Community Cloud rates (vetted third-party hosts), verified directly on runpod.io/pricing 2026-09-30 \u2014 all six tracked GPUs unchanged since 2026-09-13: 3090 $0.22, 4090 $0.34, 5090 $0.69, A6000 $0.33, A100 $1.19, H100 $1.99.",
+      "source": "https://www.runpod.io/pricing",
+      "sourceLabel": "runpod.io/pricing (official)",
       "tier": "Community Cloud",
       "updated": "2026-09-28"
     },
