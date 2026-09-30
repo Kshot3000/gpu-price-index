@@ -1,6 +1,6 @@
 {
   "fallbackOcta": {
-    "captured": "2026-09-30T15:55:00Z",
+    "captured": "2026-09-30T20:50:00Z",
     "gpus": {
       "NVIDIA GeForce RTX 3090": {
         "avg_price": 0.23,
@@ -19,16 +19,16 @@
         "count": 32
       },
       "NVIDIA GeForce RTX 5070": {
-        "avg_price": 0.18,
-        "count": 8
+        "avg_price": 0.17,
+        "count": 9
       },
       "NVIDIA GeForce RTX 5080": {
-        "avg_price": 0.35,
-        "count": 13
+        "avg_price": 0.31,
+        "count": 17
       },
       "NVIDIA GeForce RTX 5090": {
-        "avg_price": 0.64,
-        "count": 57
+        "avg_price": 0.59,
+        "count": 58
       },
       "NVIDIA H100 80GB HBM3": {
         "avg_price": 0.12,
@@ -52,7 +52,7 @@
       "prices": {
         "runpod_community": 0.22,
         "runpod_secure": 0.5,
-        "vast": 0.09,
+        "vast": 0.08,
         "saladcloud": 0.09
       },
       "vram": "24 GB"
@@ -64,7 +64,7 @@
       "prices": {
         "runpod_community": 0.34,
         "runpod_secure": 0.74,
-        "vast": 0.17,
+        "vast": 0.24,
         "saladcloud": 0.16
       },
       "vram": "24 GB"
@@ -76,7 +76,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.32,
+        "vast": 0.31,
         "saladcloud": 0.25
       },
       "vram": "32 GB"
@@ -120,7 +120,7 @@
       "name": "RTX 4070",
       "octa_match": "NVIDIA GeForce RTX 4070",
       "prices": {
-        "vast": 0.1
+        "vast": 0.09
       },
       "vram": "12 GB"
     },
@@ -147,7 +147,7 @@
       "name": "RTX 5080",
       "octa_match": "NVIDIA GeForce RTX 5080",
       "prices": {
-        "vast": 0.16,
+        "vast": 0.17,
         "saladcloud": 0.15
       },
       "vram": "16 GB"
@@ -187,7 +187,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-30 ~17:50 UTC (index page modified 5:45 PM UTC). 4 moved this pull: 3090 $0.11->$0.09, 4080 $0.24->$0.18, 5090 $0.27->$0.32, H100 SXM $0.89->$1.00. Unchanged: 4070 $0.10, 4090 $0.17, 5070 $0.11, 5080 $0.16. RTX A6000 cell retains the 2026-09-28 pull ($0.13): this pull has no Vast.ai spot row for that SKU (cheapest listed is RunPod Community $0.33). A100 cell retains the 2026-09-27 snapshot ($0.75): this pull lists only 80GB SXM spot ($0.33) and 80GB PCIe spot ($0.40) rows \u2014 neither matches this row's 40GB SXM4 SKU. H100 SXM $1.00 is the index table's merged h100-sxm Vast.ai Spot 'Cheapest Offer' row (the index displays it to the whole dollar, so $1.00 is likely rounded); the featured-card headline still reads $1.73 \u2014 not the table row this column uses, ignored per methodology.",
+      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-30 ~20:50 UTC (index page modified 8:46 PM UTC). 5 moved this pull: 3090 $0.09->$0.08, 4070 $0.10->$0.09, 4090 $0.17->$0.24, 5080 $0.16->$0.17, 5090 $0.32->$0.31. Unchanged: 5070 $0.11, H100 SXM $1.00. RTX 4080 cell retains the 16:50 UTC pull ($0.18): this pull has no Vast.ai spot row for that SKU (only RunPod Community $0.27). RTX A6000 cell retains the 2026-09-28 pull ($0.13): this pull has no Vast.ai spot row for that SKU (cheapest listed is RunPod Community $0.33). A100 cell retains the 2026-09-27 snapshot ($0.75): this pull has no matching 40GB SXM4 spot row. H100 SXM $1.00 is the index table's merged h100-sxm Vast.ai Spot 'Cheapest Offer' row (the index displays it to the whole dollar, so $1.00 is likely rounded); the featured-card headline still reads $1.73 \u2014 not the table row this column uses, ignored per methodology.",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-30",
