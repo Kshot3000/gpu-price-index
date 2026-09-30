@@ -173,16 +173,16 @@
       "source": "https://www.runpod.io/pricing",
       "sourceLabel": "runpod.io/pricing (official)",
       "tier": "Community Cloud",
-      "updated": "2026-09-28"
+      "updated": "2026-09-30"
     },
     "runpod_secure": {
       "kind": "snapshot",
       "name": "RunPod",
-      "note": "Official published Secure Cloud rates (Tier 3/4 data centers). All six tracked GPUs re-verified unchanged today (2026-09-29) on runpod.io/pricing: 3090 $0.50, 4090 $0.74, 5090 $0.99, A6000 $0.53, A100 80GB $1.59, H100 80GB $2.89.",
+      "note": "Official published Secure Cloud rates (Tier 3/4 data centers). All six tracked GPUs re-verified unchanged on 2026-09-30 on runpod.io/pricing: 3090 $0.50, 4090 $0.74, 5090 $0.99, A6000 $0.53, A100 80GB $1.59, H100 80GB $2.89.",
       "source": "https://www.runpod.io/pricing",
       "sourceLabel": "runpod.io/pricing",
       "tier": "Secure Cloud",
-      "updated": "2026-09-29"
+      "updated": "2026-09-30"
     },
     "vast": {
       "kind": "snapshot",
