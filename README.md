@@ -16,7 +16,7 @@ Built by [@kshot9000](https://x.com/kshot9000).
   5 minutes. A baked `data/competitors.json` snapshot is the fallback if the API is unreachable.
 - **Competitor columns — dated snapshots.** Vast.ai figures are the cheapest "from" offers
   (spot tier) from the [hourly-refreshed madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices)
-  (pulled 2026-09-30 ~09:55 UTC; the marketplace moves hourly, so treat these as directional),
+  (pulled 2026-09-30 ~16:50 UTC; the marketplace moves hourly, so treat these as directional),
   RunPod (Community + Secure Cloud official rates from [runpod.io/pricing](https://www.runpod.io/pricing):
   both tiers verified 2026-09-30 directly on the official pricing page — all six tracked GPUs
   unchanged on both tiers; Community rates re-verified official after RunPod restored them to
