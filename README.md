@@ -65,8 +65,10 @@ is CORS-open; the page falls back to the baked snapshot if anything blocks it).
 |---|---|
 | `index.html` | Page structure, hero, table, calculator, methodology |
 | `css/style.css` | All styling (dark theme) |
-| `js/app.js` | Live API fetch, table rendering, badges, calculator logic |
+| `js/app.js` | Live API fetch, table rendering, badges, calculator logic, trend sparklines |
 | `data/competitors.json` | Dated competitor price snapshots + methodology notes + fallback OctaSpace snapshot |
+| `data/octa-history.json` | OctaSpace price history: real scheduled marketplace captures, oldest first — feeds the trend sparklines |
+| `scripts/append-history.sh` | Pulls the live OctaSpace marketplace snapshot and appends a new history point (skips when values are unchanged) |
 
 ## Tips
 

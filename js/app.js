@@ -13,15 +13,23 @@ const fmt$ = (n) => "$" + n.toFixed(2);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 let DATA = null;
+let HISTORY = []; // [{captured, gpus: {name: {avg_price, count}}}] — real scheduled captures, oldest first
 let octaLive = null; // {name: {avg_price, count}}
 let octaLiveAt = null;
 let octaIsLive = false;
 
 async function loadData() {
   try {
-    const res = await fetch("data/competitors.json?v=11");
-    if (!res.ok) throw new Error("data " + res.status);
-    DATA = await res.json();
+    const [dres, hres] = await Promise.all([
+      fetch("data/competitors.json?v=11"),
+      fetch("data/octa-history.json?v=1").catch(() => null),
+    ]);
+    if (!dres.ok) throw new Error("data " + dres.status);
+    DATA = await dres.json();
+    if (hres && hres.ok) {
+      const h = await hres.json();
+      HISTORY = Array.isArray(h.points) ? h.points : [];
+    }
   } catch (e) {
     if (!DATA) {
       // First load failed (offline or blocked fetch): say so instead of a blank page.
@@ -97,7 +105,7 @@ function renderMeta() {
   $("#statSaveSub").textContent = `across ${savings.length} GPUs with comparable list prices`;
 }
 
-function priceCell(o) {
+function priceCell(o, octaMatch) {
   if (!o) return `<span class="na">—</span>`;
   // Honesty rule: when the live API fetch failed and we're showing the baked
   // snapshot, the cell must not claim LIVE — use the snapshot badge instead.
@@ -105,7 +113,36 @@ function priceCell(o) {
     ? `<span class="badge badge-live">LIVE</span>`
     : `<span class="badge badge-snap" title="Live OctaSpace fetch failed — showing the baked snapshot captured ${esc(DATA.fallbackOcta.captured.slice(0, 10))}.">snapshot</span>`;
   if (o.count < LOW_DATA_N) badges += `<span class="badge badge-low" title="Fewer than ${LOW_DATA_N} listings — the average can swing on a single listing.">few listings</span>`;
-  return `<span class="price">${fmt$(o.avg_price)}<span class="per">/hr</span></span>${badges}<span class="listings">${o.count} listing${o.count === 1 ? "" : "s"}</span>`;
+  return `<span class="price">${fmt$(o.avg_price)}<span class="per">/hr</span></span>${badges}<span class="listings">${o.count} listing${o.count === 1 ? "" : "s"}</span>${trendSpark(octaMatch)}`;
+}
+
+// Trend sparkline: OctaSpace average asking price across this site's scheduled
+// captures. Every point is a real marketplace pull at its shown timestamp —
+// not interpolated, not estimated. Rendered only when >= 2 points exist.
+function trendSpark(octaMatch) {
+  const series = HISTORY.map((h) => {
+    const g = h.gpus[octaMatch];
+    return { t: h.captured, p: g ? g.avg_price : null };
+  }).filter((s) => typeof s.p === "number");
+  if (series.length < 2) return "";
+  const W = 84, H = 24, PAD = 2;
+  const prices = series.map((s) => s.p);
+  const lo = Math.min(...prices), hi = Math.max(...prices);
+  const span = hi - lo || 1e-9;
+  const pts = series.map((s, i) => {
+    const x = PAD + (i / (series.length - 1)) * (W - PAD * 2);
+    const y = PAD + (1 - (s.p - lo) / span) * (H - PAD * 2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(" ");
+  const first = series[0], last = series[series.length - 1];
+  const pct = ((last.p - first.p) / first.p) * 100;
+  const down = last.p <= first.p; // cheaper is good for renters — green
+  const f = (t) => new Date(t).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const tip = `OctaSpace avg asking price — this site's scheduled captures (${series.length} pulls): ${f(first.t)} $${first.p.toFixed(2)} → ${f(last.t)} $${last.p.toFixed(2)} (${pct >= 0 ? "+" : ""}${pct.toFixed(1)}%)`;
+  return `<span class="spark" title="${esc(tip)}" aria-label="${esc(tip)}">`
+    + `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true">`
+    + `<polyline points="${pts}" fill="none" stroke="${down ? "var(--green)" : "var(--red)"}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>`
+    + `</svg></span>`;
 }
 
 function renderTable() {
@@ -140,7 +177,7 @@ function renderTable() {
       : `<span class="na">—</span>`;
     return `<tr>
       <td class="gpu-name">${esc(g.name)}<span class="vram">${esc(g.vram)}${vramNote}</span></td>
-      <td class="octa-cell">${priceCell(o)}${verifyBadge}</td>
+      <td class="octa-cell">${priceCell(o, g.octa_match)}${verifyBadge}</td>
       <td>${comp("vast", true)}</td>
       <td>${comp("saladcloud", true)}</td>
       <td>${comp("runpod_community")}</td>
