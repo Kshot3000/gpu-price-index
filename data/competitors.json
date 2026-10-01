@@ -199,8 +199,8 @@
       "tier": "Community Cloud \u00b7 Lowest priority tier",
       "source": "https://salad.com/salad-container-engine-community/",
       "sourceLabel": "salad.com (Community Cloud pricing)",
-      "updated": "2026-09-29",
-      "note": "Official published 'from' rates on the Lowest priority tier (four tiers: High, Medium, Low, Lowest \u2014 lower tiers can be preempted by higher-priority workloads). Per-second billing while instances run. List prices changed 2026-09-12; figures captured 2026-09-29: RTX 3090 $0.09, 4090 $0.16, 5080 $0.15, 5090 $0.25. Only these four GPUs publish list rates on the pricing page."
+      "updated": "2026-10-01",
+      "note": "Official published 'from' rates on the Lowest priority tier (four tiers: High, Medium, Low, Lowest \u2014 lower tiers can be preempted by higher-priority workloads). Per-second billing while instances run. List prices changed 2026-09-12; figures re-verified unchanged 2026-10-01: RTX 3090 $0.09, 4090 $0.16, 5080 $0.15, 5090 $0.25. Only these four GPUs publish list rates on the pricing page."
     }
   }
 }
