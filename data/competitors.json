@@ -52,7 +52,7 @@
       "prices": {
         "runpod_community": 0.22,
         "runpod_secure": 0.5,
-        "vast": 0.07,
+        "vast": 0.11,
         "saladcloud": 0.09
       },
       "vram": "24 GB"
@@ -64,7 +64,7 @@
       "prices": {
         "runpod_community": 0.34,
         "runpod_secure": 0.74,
-        "vast": 0.17,
+        "vast": 0.21,
         "saladcloud": 0.16
       },
       "vram": "24 GB"
@@ -76,7 +76,7 @@
       "prices": {
         "runpod_community": 0.69,
         "runpod_secure": 0.99,
-        "vast": 0.25,
+        "vast": 0.23,
         "saladcloud": 0.25
       },
       "vram": "32 GB"
@@ -111,7 +111,7 @@
       "prices": {
         "runpod_community": 1.99,
         "runpod_secure": 2.89,
-        "vast": 1.0
+        "vast": 1.07
       },
       "vram": "80 GB"
     },
@@ -129,7 +129,7 @@
       "name": "RTX 4080",
       "octa_match": "NVIDIA GeForce RTX 4080",
       "prices": {
-        "vast": 0.18
+        "vast": 0.19
       },
       "vram": "16 GB"
     },
@@ -147,7 +147,7 @@
       "name": "RTX 5080",
       "octa_match": "NVIDIA GeForce RTX 5080",
       "prices": {
-        "vast": 0.17,
+        "vast": 0.2,
         "saladcloud": 0.15
       },
       "vram": "16 GB"
@@ -187,7 +187,7 @@
     "vast": {
       "kind": "snapshot",
       "name": "Vast.ai",
-      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-09-30 ~23:50 UTC. 4 moved this pull: 4070 $0.09->$0.08, 4090 $0.20->$0.17, 5090 $0.29->$0.25, H100 SXM $0.67->$1.00 (table shows whole-dollar $1/hr; featured-card headline ignored per methodology). RTX 4080 cell retains the 16:50 UTC pull ($0.18): this pull has no Vast.ai spot row for that SKU. RTX A6000 cell retains the 2026-09-28 pull ($0.13): no Vast.ai spot row for that SKU this pull. A100 cell retains the 2026-09-27 snapshot ($0.75): no matching 40GB SXM4 spot row (this pull lists only 80GB SXM $0.13 / 80GB PCIe $0.25).",
+      "note": "Index of verified-host listings refreshed from the madebyagents.com GPU-rental price index, which aggregates the Vast.ai public API \u2014 figures are pulled via that third-party index, not queried from Vast.ai directly. Vast.ai figures are the cheapest offer found ('from' prices, spot tier) \u2014 the marketplace moves hourly, so treat these as directional. Pulled 2026-10-01 ~00:50 UTC (index page 'Prices refreshed: Oct 1, 2026, 12:48 AM UTC'). 6 moved this pull: 3090 $0.07->$0.11, 4080 $0.18->$0.19, 4090 $0.17->$0.21, 5080 $0.17->$0.20, 5090 $0.25->$0.23, H100 SXM $1.00->$1.07 (merged h100-sxm Vast Spot 'Cheapest Offer' row; featured-card headline ignored per methodology). RTX A6000 cell retains the 2026-09-28 pull ($0.13): no Vast.ai spot row for that SKU this pull. A100 cell retains the 2026-09-27 snapshot ($0.75): no matching 40GB SXM4 spot row (this pull lists only 80GB SXM $0.35 / 80GB PCIe $0.22).",
       "source": "https://www.madebyagents.com/hardware/gpu-rental-prices",
       "sourceLabel": "madebyagents.com GPU rental index",
       "updated": "2026-09-30",
