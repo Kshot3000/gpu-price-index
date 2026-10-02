@@ -1,6 +1,6 @@
 {
  "fallbackOcta": {
-  "captured": "2026-10-02T03:05:06Z",
+  "captured": "2026-10-02T07:50:30Z",
   "gpus": {
    "NVIDIA A100-SXM4-40GB": {
     "avg_price": 0.48,
@@ -27,11 +27,11 @@
     "count": 8
    },
    "NVIDIA GeForce RTX 5080": {
-    "avg_price": 0.38,
-    "count": 17
+    "avg_price": 0.35,
+    "count": 19
    },
    "NVIDIA GeForce RTX 5090": {
-    "avg_price": 0.59,
+    "avg_price": 0.63,
     "count": 62
    },
    "NVIDIA H100 80GB HBM3": {
