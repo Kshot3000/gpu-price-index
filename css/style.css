@@ -211,6 +211,12 @@ footer .wrap { display: flex; flex-direction: column; gap: 14px; }
 footer p { font-size: 13px; color: var(--muted); max-width: 760px; }
 footer .attrs { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; }
 footer a { color: var(--accent2); text-decoration: none; }
+/* mobile touch targets: the footer attribution links rendered 18px tall
+   (measured 2026-10-02 at 390px) — 40px targets on narrow screens,
+   desktop unchanged. */
+@media (max-width: 800px) {
+  footer .attrs a { display: inline-flex; align-items: center; min-height: 40px; }
+}
 .donate { font-family: ui-monospace, monospace; font-size: 12px; word-break: break-all; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; }
 
 /* ---------- responsive ---------- */
