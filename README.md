@@ -17,7 +17,7 @@ Built by [@kshot9000](https://x.com/kshot9000).
 - **Competitor columns — dated snapshots.** Vast.ai figures are the cheapest "from" offers
   (spot tier) from the [madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices),
   which aggregates the Vast.ai public API (last successful pull 2026-10-03 ~12:05 UTC;
-  the feed has had HTTP 429 stretches — most recently ~16:48 UTC on 2026-10-04 — and those
+  the feed has had HTTP 429 stretches — most recently ~17:49 UTC on 2026-10-04 — and those
   hours honestly retain the prior verified values — see the page's own methodology note for
   the full pull log). RunPod (Community + Secure Cloud official rates from
   [runpod.io/pricing](https://www.runpod.io/pricing): both tiers re-verified 2026-10-04,
