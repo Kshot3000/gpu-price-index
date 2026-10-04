@@ -17,13 +17,13 @@ Built by [@kshot9000](https://x.com/kshot9000).
 - **Competitor columns — dated snapshots.** Vast.ai figures are the cheapest "from" offers
   (spot tier) from the [madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices),
   which aggregates the Vast.ai public API (last successful pull 2026-10-03 ~12:05 UTC;
-  the feed has had HTTP 429 stretches — most recently ~13:48 UTC on 2026-10-04 — and those
+  the feed has had HTTP 429 stretches — most recently ~15:48 UTC on 2026-10-04 — and those
   hours honestly retain the prior verified values — see the page's own methodology note for
   the full pull log). RunPod (Community + Secure Cloud official rates from
-  [runpod.io/pricing](https://www.runpod.io/pricing): both tiers re-verified 2026-10-01,
+  [runpod.io/pricing](https://www.runpod.io/pricing): both tiers re-verified 2026-10-04,
   all six tracked GPUs unchanged on both tiers), and SaladCloud (official "from" rates on
   the Lowest priority tier, from [salad.com Community Cloud pricing](https://salad.com/salad-container-engine-community/)
-  — re-verified unchanged 2026-10-01; only the RTX 3090, 4090, 5080, and 5090 publish
+  — re-verified unchanged 2026-10-04; only the RTX 3090, 4090, 5080, and 5090 publish
   list rates there). The marketplace moves hourly, so treat snapshots as directional.
   Each cell on the page is labeled with the date it was verified and a link to its source.
   They do not move in real time — hover any badge for the caveats.
