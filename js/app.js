@@ -21,7 +21,7 @@ let octaIsLive = false;
 async function loadData() {
   try {
     const [dres, hres] = await Promise.all([
-      fetch("data/competitors.json?v=65"),
+      fetch("data/competitors.json?v=66"),
       fetch("data/octa-history.json?v=25").catch(() => null),
     ]);
     if (!dres.ok) throw new Error("data " + dres.status);
