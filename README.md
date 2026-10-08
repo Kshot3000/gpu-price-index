@@ -16,14 +16,14 @@ Built by [@kshot9000](https://x.com/kshot9000).
   5 minutes. A baked `data/competitors.json` snapshot is the fallback if the API is unreachable.
 - **Competitor columns — dated snapshots.** Vast.ai figures are the cheapest "from" offers
   (spot tier) from the [madebyagents.com GPU rental index](https://www.madebyagents.com/hardware/gpu-rental-prices),
-  which aggregates the Vast.ai public API (last successful pull 2026-10-07 ~16:42 UTC;
+  which aggregates the Vast.ai public API (last successful pull 2026-10-08 ~16:20 UTC;
   the feed had an HTTP 429 stretch from 2026-10-03 ~13:50 UTC through 2026-10-04 ~23:51 UTC,
   and those hours honestly retained the prior verified values — see the page's own methodology
   note for the full pull log). RunPod (Community + Secure Cloud official rates from
-  [runpod.io/pricing](https://www.runpod.io/pricing): Secure tier re-verified 2026-10-07
+  [runpod.io/pricing](https://www.runpod.io/pricing): Secure tier re-verified 2026-10-08
   and Community tier re-verified 2026-10-04, all six tracked GPUs unchanged on both tiers), and SaladCloud (official "from" rates on
   the Lowest priority tier, from [salad.com Community Cloud pricing](https://salad.com/salad-container-engine-community/)
-  — re-verified unchanged 2026-10-07; only the RTX 3090, 4090, 5080, and 5090 publish
+  — re-verified unchanged 2026-10-08; only the RTX 3090, 4090, 5080, and 5090 publish
   list rates there). The marketplace moves hourly, so treat snapshots as directional.
   Each cell on the page is labeled with the date it was verified and a link to its source.
   They do not move in real time — hover any badge for the caveats.
@@ -43,8 +43,8 @@ Competitor methodology in full: OctaSpace prices are live averages of current as
 refreshed in your browser. Competitor prices are verified on the dates shown; "from" prices are
 the cheapest offer found (Vast.ai = spot tier; SaladCloud = Lowest priority tier). Platform fees, storage, and egress are excluded
 from all columns. Exceptions: the A100 Vast.ai cell ($0.75) retains a 2026-09-27 snapshot from
-aitooldiscovery.com — later pulls (including 2026-10-07 ~16:42 UTC) still list only 80GB A100 variants
-(80GB SXM spot $0.40 / 80GB PCIe $0.40 that pull), which do not match
+aitooldiscovery.com — later pulls (including 2026-10-08 ~16:20 UTC) still list only 80GB A100 variants
+(80GB SXM spot $0.40 / 80GB PCIe $0.25 that pull), which do not match
 this row's 40GB SXM4 SKU, so no figure was swapped in. RunPod has no published Secure/Community
 price for the RTX 4070/4080/5070/5080 (checked 2026-09-28 on runpod.io/pricing), so those cells
 honestly show no figure. SaladCloud's pricing page publishes list rates for only four GPUs
