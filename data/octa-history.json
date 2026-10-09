@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T16:53:28Z",
+  "updated": "2026-10-09T16:52:13Z",
   "points": [
     {
       "captured": "2026-09-27T19:20:00Z",
@@ -1520,6 +1520,51 @@
         "NVIDIA GeForce RTX 5090": {
           "avg_price": 0.66,
           "count": 60
+        },
+        "NVIDIA H100 80GB HBM3": {
+          "avg_price": 0.12,
+          "count": 8
+        },
+        "NVIDIA RTX A6000": {
+          "avg_price": 0.2,
+          "count": 2
+        }
+      }
+    },
+    {
+      "captured": "2026-10-09T16:52:13Z",
+      "gpus": {
+        "NVIDIA A100-SXM4-40GB": {
+          "avg_price": 0.48,
+          "count": 1
+        },
+        "NVIDIA GeForce RTX 3090": {
+          "avg_price": 0.23,
+          "count": 51
+        },
+        "NVIDIA GeForce RTX 4070": {
+          "avg_price": 0.23,
+          "count": 7
+        },
+        "NVIDIA GeForce RTX 4080": {
+          "avg_price": 0.1,
+          "count": 3
+        },
+        "NVIDIA GeForce RTX 4090": {
+          "avg_price": 0.44,
+          "count": 36
+        },
+        "NVIDIA GeForce RTX 5070": {
+          "avg_price": 0.18,
+          "count": 7
+        },
+        "NVIDIA GeForce RTX 5080": {
+          "avg_price": 0.37,
+          "count": 19
+        },
+        "NVIDIA GeForce RTX 5090": {
+          "avg_price": 0.68,
+          "count": 62
         },
         "NVIDIA H100 80GB HBM3": {
           "avg_price": 0.12,
